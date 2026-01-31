@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=3 uid="uid://2vmr3w010lpj"]
+
+[ext_resource type="Script" path="res://Characters/Baby/Baby.cs" id="1_uydqi"]
+[ext_resource type="Texture2D" uid="uid://cnltv8okthjgq" path="res://Characters/Baby/Baby Stand.png" id="2_qpvu6"]
+[ext_resource type="Texture2D" uid="uid://bsbhums0awda" path="res://Characters/Baby/Baby Caught.png" id="2_w4nui"]
+[ext_resource type="Texture2D" uid="uid://bavctm4yk5v12" path="res://Characters/Baby/Baby Blink.png" id="3_qn0je"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o3hmd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_w4nui")
+}],
+"loop": true,
+"name": &"Caught",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qpvu6")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qpvu6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_qn0je")
+}],
+"loop": true,
+"name": &"Yapping",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uhtty"]
+size = Vector2(290, 320)
+
+[node name="Baby" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 4
+input_pickable = true
+script = ExtResource("1_uydqi")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_o3hmd")
+animation = &"Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_uhtty")
+
+[connection signal="input_event" from="." to="." method="OnInput"]

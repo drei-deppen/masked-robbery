@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cp8vllkmh7ucr"]
+[gd_scene load_steps=16 format=3 uid="uid://cp8vllkmh7ucr"]
 
 [ext_resource type="PackedScene" uid="uid://cqpowkkwqi0n6" path="res://UI/MaskSelector.tscn" id="1_328ns"]
 [ext_resource type="Script" path="res://Levels/Level1.cs" id="1_nfr8y"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c5il8upn83mah" path="res://Characters/Frederick/Frederick.tscn" id="8_tm0xi"]
 [ext_resource type="PackedScene" uid="uid://csk6d450lrkl0" path="res://Characters/Governess/Governess.tscn" id="8_xc6cd"]
 [ext_resource type="PackedScene" uid="uid://ci2bwmmyaws3o" path="res://Characters/Dame/Dame.tscn" id="9_esgio"]
+[ext_resource type="PackedScene" uid="uid://2vmr3w010lpj" path="res://Characters/Baby/Baby.tscn" id="10_2j16d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sbx46"]
 size = Vector2(738, 334)
@@ -21,6 +22,9 @@ size = Vector2(1200, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q7ceg"]
 size = Vector2(800, 310)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vsn2d"]
+size = Vector2(462.5, 321)
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_nfr8y")
@@ -76,6 +80,10 @@ scale = Vector2(0.5, 0.5)
 position = Vector2(769, 508)
 scale = Vector2(0.5, 0.5)
 
+[node name="Baby" parent="Boogies" instance=ExtResource("10_2j16d")]
+position = Vector2(989, 230)
+scale = Vector2(0.5, 0.5)
+
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.3
 autostart = true
@@ -123,10 +131,20 @@ position = Vector2(777, 506)
 shape = SubResource("RectangleShape2D_q7ceg")
 debug_color = Color(0.592157, 0, 0.27451, 0.419608)
 
+[node name="Room3" parent="." instance=ExtResource("7_o1qey")]
+position = Vector2(-795, 188)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room3"]
+position = Vector2(1768.75, -24)
+shape = SubResource("RectangleShape2D_vsn2d")
+debug_color = Color(0.592157, 0, 0.27451, 0.419608)
+
 [connection signal="MaskSelected" from="CanvasLayer/MaskSelector" to="." method="OnMaskSelected"]
 [connection signal="Caught" from="Room" to="." method="OnCaught"]
 [connection signal="Clicked" from="Boogies/Frederick" to="CanvasLayer/MaskSelector" method="OnCharacterPhotographed"]
 [connection signal="Clicked" from="Boogies/Governess" to="CanvasLayer/MaskSelector" method="OnCharacterPhotographed"]
 [connection signal="Clicked" from="Boogies/Dame" to="CanvasLayer/MaskSelector" method="OnCharacterPhotographed"]
+[connection signal="Clicked" from="Boogies/Baby" to="CanvasLayer/MaskSelector" method="OnCharacterPhotographed"]
 [connection signal="timeout" from="Timer" to="." method="OnBoogieTimer"]
 [connection signal="Caught" from="Room2" to="." method="OnCaught"]
+[connection signal="Caught" from="Room3" to="." method="OnCaught"]
