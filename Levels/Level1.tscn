@@ -36,7 +36,7 @@ position = Vector2(489, 260)
 texture = ExtResource("5_p0ad4")
 
 [node name="Door" parent="." node_paths=PackedStringArray("_target") instance=ExtResource("6_ogrn0")]
-position = Vector2(117, 493)
+position = Vector2(104, 163)
 _target = NodePath("../Door2")
 
 [node name="Door2" parent="." node_paths=PackedStringArray("_target") instance=ExtResource("6_ogrn0")]

@@ -1,10 +1,13 @@
 using Godot;
 using System;
+using System.Threading.Tasks;
+using Timer = System.Timers.Timer;
 
 public partial class Door : Area2D
 {
     [Export] private Door _target;
     private Ferret _ferret;
+    private int _transferTime = 250;
 
     public void OnBodyEnters(Node2D body)
     {
@@ -26,10 +29,39 @@ public partial class Door : Area2D
 
     public override void _Input(InputEvent @event)
     {
-        if (null != _target && null != _ferret && @event.IsActionPressed("Up"))
+        if (@event.IsActionPressed("Up"))
         {
-            _ferret.GlobalPosition = _target.GetGlobalPosition();
+            _moveFerret();
         }
         base._Input(@event);
+    }
+
+    private async void _moveFerret()
+    {
+        if (null == _target || null == _ferret)
+        {
+            return;
+        }
+        
+        var camera = GetViewport().GetCamera2D();
+        var ferret = _ferret;
+        
+        // TODO Play Animation
+
+        ferret.Visible = false;
+        ferret.GlobalPosition = _target.GetGlobalPosition();
+        
+        var tween = CreateTween();
+        tween.SetEase(Tween.EaseType.InOut);
+        tween.SetProcessMode(Tween.TweenProcessMode.Physics);
+        tween.TweenProperty(camera, "global_position", _target.GetGlobalPosition(), _transferTime / 1000.0);
+        var promise = new TaskCompletionSource();
+        tween.TweenCallback(Callable.From(() => promise.TrySetResult()));
+        await promise.Task;
+        
+        // TODO Play Target animation
+        
+        ferret.Visible = true;
+        
     }
 }
