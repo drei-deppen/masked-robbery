@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cp8vllkmh7ucr"]
+[gd_scene load_steps=12 format=3 uid="uid://cp8vllkmh7ucr"]
 
 [ext_resource type="PackedScene" uid="uid://cqpowkkwqi0n6" path="res://UI/MaskSelector.tscn" id="1_328ns"]
 [ext_resource type="Script" path="res://Levels/Level1.cs" id="1_nfr8y"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://d3k3wdwgals8" path="res://Levels/Door.tscn" id="6_ogrn0"]
 [ext_resource type="PackedScene" uid="uid://down7up0kj4vg" path="res://Levels/Room.tscn" id="7_o1qey"]
 [ext_resource type="PackedScene" uid="uid://c5il8upn83mah" path="res://Characters/Frederick/Frederick.tscn" id="8_tm0xi"]
+[ext_resource type="PackedScene" uid="uid://csk6d450lrkl0" path="res://Characters/Governess/Governess.tscn" id="8_xc6cd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sbx46"]
 size = Vector2(738, 334)
@@ -62,38 +63,42 @@ shape = SubResource("RectangleShape2D_sbx46")
 position = Vector2(614, 166)
 scale = Vector2(0.5, 0.5)
 
+[node name="Governess" parent="Boogies" instance=ExtResource("8_xc6cd")]
+position = Vector2(399, 151)
+scale = Vector2(0.5, 0.5)
+
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.3
 autostart = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(1200, 330)
-collision_layer = 3
-collision_mask = 3
+collision_layer = 4
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("RectangleShape2D_iyyiq")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 position = Vector2(-30, 330)
-collision_layer = 3
-collision_mask = 3
+collision_layer = 4
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
 shape = SubResource("RectangleShape2D_iyyiq")
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="."]
 position = Vector2(590, 0)
-collision_layer = 3
-collision_mask = 3
+collision_layer = 4
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
 shape = SubResource("RectangleShape2D_vvu5s")
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="."]
 position = Vector2(590, 670)
-collision_layer = 3
-collision_mask = 3
+collision_layer = 4
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
 shape = SubResource("RectangleShape2D_vvu5s")
@@ -101,4 +106,5 @@ shape = SubResource("RectangleShape2D_vvu5s")
 [connection signal="MaskSelected" from="CanvasLayer/MaskSelector" to="." method="OnMaskSelected"]
 [connection signal="Caught" from="Room" to="." method="OnCaught"]
 [connection signal="Clicked" from="Boogies/Frederick" to="CanvasLayer/MaskSelector" method="OnCharacterPhotographed"]
+[connection signal="Clicked" from="Boogies/Governess" to="CanvasLayer/MaskSelector" method="OnCharacterPhotographed"]
 [connection signal="timeout" from="Timer" to="." method="OnBoogieTimer"]

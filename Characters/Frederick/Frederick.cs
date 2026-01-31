@@ -30,7 +30,17 @@ public partial class Frederick : Character
         sprite.Play("Walking");
         await Move(Position + Vector2.Right * where);
         sprite.Play("Idle");
-        GD.Print(where);
         Busy = false;
+    }
+
+    public override void Look(string direction)
+    {
+        if (Busy) return;
+        GetNode<AnimatedSprite2D>("Sprite").FlipH = direction == "right";
+    }
+
+    public override bool Catches(Ferret ferret)
+    {
+        return false;
     }
 }

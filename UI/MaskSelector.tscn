@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://cqpowkkwqi0n6"]
+[gd_scene load_steps=5 format=3 uid="uid://cqpowkkwqi0n6"]
 
 [ext_resource type="Script" path="res://UI/MaskSelector.cs" id="1_naeel"]
+[ext_resource type="Texture2D" uid="uid://bqr5rtp64spuu" path="res://UI/Sire.png" id="2_38dtu"]
+[ext_resource type="Texture2D" uid="uid://dthle5x8dprhs" path="res://UI/Dame.png" id="3_oegqy"]
+[ext_resource type="Texture2D" uid="uid://oxv441nwh1k" path="res://UI/Governess.png" id="4_o4guf"]
 
 [node name="MaskSelector" type="Panel"]
 custom_minimum_size = Vector2(0, 64)
@@ -31,19 +34,23 @@ layout_mode = 2
 mouse_default_cursor_shape = 2
 text = "Ferret"
 
-[node name="Toad" type="Button" parent="Layout/Masks"]
-visible = false
+[node name="Sire" type="TextureButton" parent="Layout/Masks"]
 layout_mode = 2
-mouse_default_cursor_shape = 2
-text = "Toad"
+texture_normal = ExtResource("2_38dtu")
+stretch_mode = 0
 
-[node name="Hare" type="Button" parent="Layout/Masks"]
+[node name="Dame" type="TextureButton" parent="Layout/Masks"]
 visible = false
 layout_mode = 2
-mouse_default_cursor_shape = 2
-text = "Hare"
+texture_normal = ExtResource("3_oegqy")
+
+[node name="Governess" type="TextureButton" parent="Layout/Masks"]
+visible = false
+layout_mode = 2
+texture_normal = ExtResource("4_o4guf")
 
 [connection signal="pressed" from="Layout/CameraButton" to="." method="OnCameraPressed"]
 [connection signal="pressed" from="Layout/Masks/Ferret" to="." method="OnFerretPressed"]
-[connection signal="pressed" from="Layout/Masks/Toad" to="." method="OnFrogPressed"]
-[connection signal="pressed" from="Layout/Masks/Hare" to="." method="OnHarePressed"]
+[connection signal="pressed" from="Layout/Masks/Sire" to="." method="OnSirePressed"]
+[connection signal="pressed" from="Layout/Masks/Dame" to="." method="OnDamePressed"]
+[connection signal="pressed" from="Layout/Masks/Governess" to="." method="OnGovernessPressed"]

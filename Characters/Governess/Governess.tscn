@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=3 uid="uid://csk6d450lrkl0"]
+
+[ext_resource type="Texture2D" uid="uid://d2pwsrjln8tw5" path="res://Characters/Governess/Governess Caught.png" id="1_2echs"]
+[ext_resource type="Script" path="res://Characters/Governess/Governess.cs" id="1_3aiga"]
+[ext_resource type="Texture2D" uid="uid://c5x5hegfljl37" path="res://Characters/Governess/Governess Stand.png" id="2_hr3ig"]
+[ext_resource type="Texture2D" uid="uid://b7hjrqy3vc85r" path="res://Characters/Governess/Governess Blink.png" id="3_y46b6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rrsow"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_2echs")
+}],
+"loop": true,
+"name": &"Caught",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_hr3ig")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_hr3ig")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_y46b6")
+}],
+"loop": true,
+"name": &"Yapping",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_13wfn"]
+size = Vector2(160, 500)
+
+[node name="Governess" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 4
+input_pickable = true
+script = ExtResource("1_3aiga")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_rrsow")
+animation = &"Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_13wfn")
+
+[connection signal="input_event" from="." to="." method="OnInput"]

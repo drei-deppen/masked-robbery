@@ -4,11 +4,22 @@ public partial class Ferret : CharacterBody2D
 {
     private Vector2 _direction = Vector2.Zero;
     private float _speed = 5f;
+    private RandomNumberGenerator _rng = new();
+
+    private Node2D _masks;
+    private AnimatedSprite2D _sprite;
+
+    public override void _Ready()
+    {
+        base._Ready();
+        _masks = GetNode<Node2D>("Masks");
+        _sprite = GetNode<AnimatedSprite2D>("Sprite");
+    }
 
     public void SetMask(string maskName)
     {
         GD.Print(Name + " tries to mask as " + maskName);
-        var masks = GetNode<Node2D>("Masks").FindChildren("*");
+        var masks = _masks.FindChildren("*");
         foreach (var mask in masks)
             if (mask is Node2D mask2d)
             {
@@ -19,7 +30,7 @@ public partial class Ferret : CharacterBody2D
 
     public bool IsMasked(string maskName = null)
     {
-        var masks = GetNode<Node2D>("Masks").FindChildren("*");
+        var masks = _masks.FindChildren("*");
         foreach (var mask in masks)
         {
             if (mask is not Node2D mask2d || !mask2d.IsVisible()) continue;
@@ -33,16 +44,38 @@ public partial class Ferret : CharacterBody2D
     public override void _Input(InputEvent @event)
     {
         if (@event.IsActionPressed("Left"))
-            _direction = Vector2.Left;
+            _walk(Vector2.Left);
         else if (@event.IsActionPressed("Right"))
-            _direction = Vector2.Right;
+            _walk(Vector2.Right);
         else if (@event.IsActionReleased("Right") || @event.IsActionReleased("Left"))
+        {
+            _masks.Position = GetNode<Node2D>("MaskIdle" + (_sprite.FlipH ? "Right" : "Left")).Position;
             _direction = Vector2.Zero;
+            _sprite.Play("Idle");
+        }
+    }
+
+    private void _walk(Vector2 direction)
+    {
+        _direction = direction;
+        _sprite.FlipH = Vector2.Right == direction;
+        foreach (var mask in _masks.FindChildren("*"))
+            if (mask is Sprite2D mask2d)
+                mask2d.FlipH = _sprite.FlipH;
+        _masks.Position = GetNode<Node2D>("MaskWalking" + (_sprite.FlipH ? "Right" : "Left")).Position;
+        _sprite.Play("Walking");
     }
 
     public override void _PhysicsProcess(double delta)
     {
         MoveAndCollide(_direction * _speed);
         base._PhysicsProcess(delta);
+    }
+
+    public void OnBlinkTimer()
+    {
+        if (_direction.Length() > 0.1f) return;
+        _sprite.Play("Yapping");
+        GetNode<Timer>("BlinkTimer").WaitTime = _rng.Randf() + 2.5f;
     }
 }

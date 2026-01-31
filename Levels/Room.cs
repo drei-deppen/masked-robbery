@@ -18,6 +18,10 @@ public partial class Room : Area2D
         {
             case Ferret ferret:
                 _ferret = ferret;
+                _characters.ForEach(character =>
+                {
+                    character.Look((_ferret.GlobalPosition - character.GlobalPosition).X < 0 ? "left" : "right");
+                });
                 break;
             case Character character:
                 _characters.Add(character);
@@ -26,10 +30,8 @@ public partial class Room : Area2D
         }
 
         if (_ferret == null || _characters.Count <= 0) return;
-        if (
-            !_ferret.IsMasked()
-            || _characters.Any(character => _ferret.IsMasked(character.GetMaskName()))
-        ) EmitSignal(SignalName.Caught);
+        if (_characters.Any(character => character.Catches(_ferret)))
+            EmitSignal(SignalName.Caught);
     }
 
     public bool JustMe(Node2D me)

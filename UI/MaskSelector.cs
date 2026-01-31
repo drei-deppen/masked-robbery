@@ -35,13 +35,18 @@ public partial class MaskSelector : Panel
 		EmitSignal(SignalName.MaskSelected, "Ferret");
 	}
 
-	public void OnFrogPressed()
+	public void OnSirePressed()
 	{
-		EmitSignal(SignalName.MaskSelected, "Toad");
+		EmitSignal(SignalName.MaskSelected, "Sire");
 	}
 
-	public void OnHarePressed()
+	public void OnDamePressed()
 	{
-		EmitSignal(SignalName.MaskSelected, "Hare");
+		EmitSignal(SignalName.MaskSelected, "Dame");
+	}
+
+	public void OnGovernessPressed()
+	{
+		EmitSignal(SignalName.MaskSelected, "Governess");
 	}
 }

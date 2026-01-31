@@ -1,28 +1,110 @@
-[gd_scene load_steps=4 format=3 uid="uid://c752jdl7i4wrc"]
+[gd_scene load_steps=13 format=3 uid="uid://c752jdl7i4wrc"]
 
 [ext_resource type="Script" path="res://Characters/Ferret/Ferret.cs" id="1_aofq6"]
-[ext_resource type="Texture2D" uid="uid://cq6aw0tm46jkk" path="res://Characters/Frederick/Freddy Standing.png" id="2_pv0lt"]
+[ext_resource type="Texture2D" uid="uid://dldrjc27ovk1i" path="res://Characters/Ferret/Ferret Stand.png" id="2_q5jbc"]
+[ext_resource type="Texture2D" uid="uid://cf8ufna25bb7x" path="res://Characters/Ferret/Ferret Walk 1.png" id="3_tn2yd"]
+[ext_resource type="Texture2D" uid="uid://bf4bws6ucinnl" path="res://Characters/Ferret/Ferret Walk 2.png" id="4_yh7gl"]
+[ext_resource type="Texture2D" uid="uid://bsvq8cy5n2a7t" path="res://Characters/Ferret/Ferret Walk 3.png" id="5_o8ug0"]
+[ext_resource type="Texture2D" uid="uid://b41tk6wqa1g4u" path="res://Characters/Ferret/Ferret Walk 4.png" id="6_o15il"]
+[ext_resource type="Texture2D" uid="uid://bnwls6ge0fi4g" path="res://Characters/Ferret/Ferret Blink.png" id="7_evcci"]
+[ext_resource type="Texture2D" uid="uid://c7nxc284j3g8b" path="res://Characters/Ferret/Maske Sire.png" id="8_o3kj0"]
+[ext_resource type="Texture2D" uid="uid://bnegw5m0o5yut" path="res://Characters/Ferret/Maske Dame.png" id="9_svlje"]
+[ext_resource type="Texture2D" uid="uid://dyb4pr2iw2vey" path="res://Characters/Ferret/Maske Governess.png" id="10_kj5n8"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jsdys"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_q5jbc")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_tn2yd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_yh7gl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_o8ug0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_o15il")
+}],
+"loop": true,
+"name": &"Walking",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_q5jbc")
+}, {
+"duration": 3.0,
+"texture": ExtResource("7_evcci")
+}, {
+"duration": 0.5,
+"texture": ExtResource("2_q5jbc")
+}, {
+"duration": 2.0,
+"texture": ExtResource("7_evcci")
+}, {
+"duration": 0.5,
+"texture": ExtResource("2_q5jbc")
+}],
+"loop": false,
+"name": &"Yapping",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wsrwm"]
 size = Vector2(300, 500)
 
 [node name="Ferret" type="CharacterBody2D"]
+collision_mask = 5
 script = ExtResource("1_aofq6")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_pv0lt")
-
-[node name="Masks" type="Node2D" parent="."]
-position = Vector2(0, -64)
-
-[node name="Toad" type="Polygon2D" parent="Masks"]
-visible = false
-polygon = PackedVector2Array(600, 0, 0, 300, -600, 0, 0, -500)
-
-[node name="Hare" type="Polygon2D" parent="Masks"]
-visible = false
-color = Color(0, 1, 1, 1)
-polygon = PackedVector2Array(600, 0, 0, 300, -600, 0, 0, -500)
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_jsdys")
+animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_wsrwm")
+
+[node name="BlinkTimer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="Masks" type="Node2D" parent="."]
+position = Vector2(-59, -167)
+
+[node name="Sire" type="Sprite2D" parent="Masks"]
+visible = false
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("8_o3kj0")
+
+[node name="Dame" type="Sprite2D" parent="Masks"]
+visible = false
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("9_svlje")
+
+[node name="Governess" type="Sprite2D" parent="Masks"]
+visible = false
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("10_kj5n8")
+
+[node name="MaskIdleLeft" type="Node2D" parent="."]
+position = Vector2(-59, -167)
+
+[node name="MaskWalkingLeft" type="Node2D" parent="."]
+position = Vector2(-120, -148)
+
+[node name="MaskIdleRight" type="Node2D" parent="."]
+position = Vector2(59, -167)
+
+[node name="MaskWalkingRight" type="Node2D" parent="."]
+position = Vector2(120, -148)
+
+[connection signal="timeout" from="BlinkTimer" to="." method="OnBlinkTimer"]

@@ -65,8 +65,14 @@ public abstract partial class Character: CharacterBody2D
         _walkingTask = new TaskCompletionSource();
         await _walkingTask.Task;
     }
+
+    public virtual bool Catches(Ferret ferret)
+    {
+        return !ferret.IsMasked() || ferret.IsMasked(GetMaskName());
+    }
     
     public abstract string GetMaskName();
     public abstract void Yap();
     public abstract void Walk(int where);
+    public abstract void Look(string direction);
 }
