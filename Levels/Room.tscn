@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://down7up0kj4vg"]
+
+[ext_resource type="Script" path="res://Levels/Room.cs" id="1_nfcbx"]
+
+[node name="Room" type="Area2D"]
+script = ExtResource("1_nfcbx")
+
+[connection signal="body_entered" from="." to="." method="OnBodyEnters"]
+[connection signal="body_exited" from="." to="." method="OnBodyLeaves"]

@@ -16,8 +16,13 @@ texture = ExtResource("2_emu2v")
 [node name="Masks" type="Node2D" parent="."]
 position = Vector2(0, -830)
 
-[node name="Frog" type="Polygon2D" parent="Masks"]
+[node name="Toad" type="Polygon2D" parent="Masks"]
 visible = false
+polygon = PackedVector2Array(600, 0, 0, 300, -600, 0, 0, -500)
+
+[node name="Hare" type="Polygon2D" parent="Masks"]
+visible = false
+color = Color(0, 1, 1, 1)
 polygon = PackedVector2Array(600, 0, 0, 300, -600, 0, 0, -500)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5il8upn83mah"]
+
+[ext_resource type="Script" path="res://Characters/Frederick/Frederick.cs" id="1_ey32j"]
+[ext_resource type="Texture2D" uid="uid://bklg0vonc558o" path="res://Characters/Ferret/Standing.png" id="2_47dbm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pdhue"]
+size = Vector2(1200, 2600)
+
+[node name="Frederick" type="CharacterBody2D"]
+script = ExtResource("1_ey32j")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_47dbm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_pdhue")

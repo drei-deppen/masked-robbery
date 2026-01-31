@@ -13,6 +13,11 @@ public partial class MaskSelector : Panel
 
 	public void OnFrogPressed()
 	{
-		EmitSignal(SignalName.MaskSelected, "Frog");
+		EmitSignal(SignalName.MaskSelected, "Toad");
+	}
+
+	public void OnHarePressed()
+	{
+		EmitSignal(SignalName.MaskSelected, "Hare");
 	}
 }

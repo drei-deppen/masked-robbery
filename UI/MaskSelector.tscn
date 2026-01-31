@@ -31,10 +31,16 @@ layout_mode = 2
 mouse_default_cursor_shape = 2
 text = "Ferret"
 
-[node name="Frog" type="Button" parent="Layout/Masks"]
+[node name="Toad" type="Button" parent="Layout/Masks"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
-text = "Frog"
+text = "Toad"
+
+[node name="Hare" type="Button" parent="Layout/Masks"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+text = "Hare"
 
 [connection signal="pressed" from="Layout/Masks/Ferret" to="." method="OnFerretPressed"]
-[connection signal="pressed" from="Layout/Masks/Frog" to="." method="OnFrogPressed"]
+[connection signal="pressed" from="Layout/Masks/Toad" to="." method="OnFrogPressed"]
+[connection signal="pressed" from="Layout/Masks/Hare" to="." method="OnHarePressed"]

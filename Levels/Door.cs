@@ -20,7 +20,7 @@ public partial class Door : Area2D
 
     public void OnBodyLeaves(Node2D body)
     {
-        if (body is Ferret ferret)
+        if (body is Ferret)
         {
             _ferret = null;
             GetNode<Polygon2D>("Polygon2D").Color = Color.Color8(255, 255, 255);
