@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://cp8vllkmh7ucr"]
+[gd_scene load_steps=17 format=3 uid="uid://cp8vllkmh7ucr"]
 
 [ext_resource type="PackedScene" uid="uid://cqpowkkwqi0n6" path="res://UI/MaskSelector.tscn" id="1_328ns"]
 [ext_resource type="Script" path="res://Levels/Level1.cs" id="1_nfr8y"]
 [ext_resource type="PackedScene" uid="uid://c752jdl7i4wrc" path="res://Characters/Ferret/Ferret.tscn" id="2_mq57p"]
 [ext_resource type="PackedScene" uid="uid://cjtkcah6c07nq" path="res://Levels/Camera.tscn" id="4_l3axb"]
+[ext_resource type="Script" path="res://UI/LevelHider.cs" id="5_7uch2"]
 [ext_resource type="PackedScene" uid="uid://d3k3wdwgals8" path="res://Levels/Door.tscn" id="6_ogrn0"]
 [ext_resource type="PackedScene" uid="uid://down7up0kj4vg" path="res://Levels/Room.tscn" id="7_o1qey"]
 [ext_resource type="PackedScene" uid="uid://c5il8upn83mah" path="res://Characters/Frederick/Frederick.tscn" id="8_tm0xi"]
@@ -29,6 +30,20 @@ size = Vector2(462.5, 321)
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_nfr8y")
 
+[node name="Camera" parent="." node_paths=PackedStringArray("_focus") instance=ExtResource("4_l3axb")]
+limit_left = -1500
+limit_right = 1500
+_focus = NodePath("../Ferret")
+
+[node name="LevelHider" type="ColorRect" parent="Camera"]
+z_index = 500
+offset_left = -1605.0
+offset_top = -1140.0
+offset_right = 1898.0
+offset_bottom = 1478.0
+mouse_filter = 2
+script = ExtResource("5_7uch2")
+
 [node name="Ferret" parent="." instance=ExtResource("2_mq57p")]
 z_index = 100
 position = Vector2(105, 498)
@@ -44,11 +59,6 @@ anchor_bottom = 1.0
 offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 0
-
-[node name="Camera" parent="." node_paths=PackedStringArray("_focus") instance=ExtResource("4_l3axb")]
-limit_left = -1500
-limit_right = 1500
-_focus = NodePath("../Ferret")
 
 [node name="Door" parent="." node_paths=PackedStringArray("_target") instance=ExtResource("6_ogrn0")]
 position = Vector2(104, 163)
