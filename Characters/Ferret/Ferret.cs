@@ -42,7 +42,7 @@ public partial class Ferret : CharacterBody2D
 
     public override void _PhysicsProcess(double delta)
     {
-        GlobalPosition += _direction * _speed;
+        MoveAndCollide(_direction * _speed);
         base._PhysicsProcess(delta);
     }
 }

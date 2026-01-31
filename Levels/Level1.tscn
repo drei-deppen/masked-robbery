@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cp8vllkmh7ucr"]
+[gd_scene load_steps=11 format=3 uid="uid://cp8vllkmh7ucr"]
 
 [ext_resource type="PackedScene" uid="uid://cqpowkkwqi0n6" path="res://UI/MaskSelector.tscn" id="1_328ns"]
 [ext_resource type="Script" path="res://Levels/Level1.cs" id="1_nfr8y"]
@@ -10,6 +10,12 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sbx46"]
 size = Vector2(738, 334)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iyyiq"]
+size = Vector2(20, 700)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vvu5s"]
+size = Vector2(1200, 20)
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_nfr8y")
@@ -59,6 +65,38 @@ scale = Vector2(0.5, 0.5)
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.3
 autostart = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(1200, 330)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_iyyiq")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(-30, 330)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource("RectangleShape2D_iyyiq")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(590, 0)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+shape = SubResource("RectangleShape2D_vvu5s")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+position = Vector2(590, 670)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+shape = SubResource("RectangleShape2D_vvu5s")
 
 [connection signal="MaskSelected" from="CanvasLayer/MaskSelector" to="." method="OnMaskSelected"]
 [connection signal="Caught" from="Room" to="." method="OnCaught"]
