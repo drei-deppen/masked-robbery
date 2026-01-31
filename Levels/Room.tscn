@@ -3,6 +3,8 @@
 [ext_resource type="Script" path="res://Levels/Room.cs" id="1_nfcbx"]
 
 [node name="Room" type="Area2D"]
+collision_layer = 0
+collision_mask = 3
 script = ExtResource("1_nfcbx")
 
 [connection signal="body_entered" from="." to="." method="OnBodyEnters"]

@@ -17,7 +17,7 @@ script = ExtResource("1_nfr8y")
 [node name="Ferret" parent="." instance=ExtResource("2_mq57p")]
 z_index = 100
 position = Vector2(588, 518)
-scale = Vector2(0.1, 0.1)
+scale = Vector2(0.5, 0.5)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -44,14 +44,23 @@ position = Vector2(1004, 496)
 _target = NodePath("../Door")
 
 [node name="Room" parent="." instance=ExtResource("7_o1qey")]
+input_pickable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Room"]
 position = Vector2(359, 157)
 shape = SubResource("RectangleShape2D_sbx46")
 
-[node name="Frederick" parent="." instance=ExtResource("8_tm0xi")]
+[node name="Boogies" type="Node" parent="."]
+
+[node name="Frederick" parent="Boogies" instance=ExtResource("8_tm0xi")]
 position = Vector2(614, 166)
-scale = Vector2(0.1, 0.1)
+scale = Vector2(0.5, 0.5)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.3
+autostart = true
 
 [connection signal="MaskSelected" from="CanvasLayer/MaskSelector" to="." method="OnMaskSelected"]
 [connection signal="Caught" from="Room" to="." method="OnCaught"]
+[connection signal="Clicked" from="Boogies/Frederick" to="CanvasLayer/MaskSelector" method="OnCharacterPhotographed"]
+[connection signal="timeout" from="Timer" to="." method="OnBoogieTimer"]

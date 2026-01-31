@@ -1,16 +1,66 @@
-[gd_scene load_steps=4 format=3 uid="uid://c5il8upn83mah"]
+[gd_scene load_steps=10 format=3 uid="uid://c5il8upn83mah"]
 
 [ext_resource type="Script" path="res://Characters/Frederick/Frederick.cs" id="1_ey32j"]
-[ext_resource type="Texture2D" uid="uid://bklg0vonc558o" path="res://Characters/Ferret/Standing.png" id="2_47dbm"]
+[ext_resource type="Texture2D" uid="uid://cq6aw0tm46jkk" path="res://Characters/Frederick/Freddy Standing.png" id="2_70vt0"]
+[ext_resource type="Texture2D" uid="uid://chksupj3h1xwq" path="res://Characters/Frederick/Freddy Talking.png" id="3_m6sva"]
+[ext_resource type="Texture2D" uid="uid://cf4dmku5t6f2e" path="res://Characters/Frederick/Freddy Walking 1.png" id="4_hiilj"]
+[ext_resource type="Texture2D" uid="uid://bpmp3g4hmc5mf" path="res://Characters/Frederick/Freddy Walking 2.png" id="5_02lyh"]
+[ext_resource type="Texture2D" uid="uid://biu312oqb6l0e" path="res://Characters/Frederick/Freddy Walking 3.png" id="6_58tpq"]
+[ext_resource type="Texture2D" uid="uid://btg6nyk7n5s3f" path="res://Characters/Frederick/Freddy Walking 4.png" id="7_ov1r5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_won70"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_70vt0")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_hiilj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_02lyh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_58tpq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ov1r5")
+}],
+"loop": true,
+"name": &"Walking",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_70vt0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_m6sva")
+}],
+"loop": true,
+"name": &"Yapping",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pdhue"]
-size = Vector2(1200, 2600)
+size = Vector2(300, 500)
 
 [node name="Frederick" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 0
+input_pickable = true
 script = ExtResource("1_ey32j")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_47dbm")
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_won70")
+animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_pdhue")
+
+[connection signal="input_event" from="." to="." method="OnInput"]
