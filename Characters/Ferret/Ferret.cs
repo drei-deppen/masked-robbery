@@ -5,9 +5,17 @@ public partial class Ferret : CharacterBody2D
     private Vector2 _direction = Vector2.Zero;
     private float _speed = 5f;
     private RandomNumberGenerator _rng = new();
+    private bool _caught = false;
 
     private Node2D _masks;
     private AnimatedSprite2D _sprite;
+
+    public void Caught()
+    {
+        _caught = true;
+        SetMask("Ferret");
+        _sprite.FlipV = true;
+    }
 
     public override void _Ready()
     {
@@ -18,6 +26,7 @@ public partial class Ferret : CharacterBody2D
 
     public void SetMask(string maskName)
     {
+        if (_caught) return;
         GD.Print(Name + " tries to mask as " + maskName);
         var masks = _masks.FindChildren("*");
         foreach (var mask in masks)
@@ -43,6 +52,7 @@ public partial class Ferret : CharacterBody2D
 
     public override void _Input(InputEvent @event)
     {
+        if (_caught) return;
         if (@event.IsActionPressed("Left"))
             _walk(Vector2.Left);
         else if (@event.IsActionPressed("Right"))
@@ -68,12 +78,14 @@ public partial class Ferret : CharacterBody2D
 
     public override void _PhysicsProcess(double delta)
     {
-        MoveAndCollide(_direction * _speed);
+        if (!_caught)
+            MoveAndCollide(_direction * _speed);
         base._PhysicsProcess(delta);
     }
 
     public void OnBlinkTimer()
     {
+        if (_caught) return;
         if (_direction.Length() > 0.1f) return;
         _sprite.Play("Yapping");
         GetNode<Timer>("BlinkTimer").WaitTime = _rng.Randf() + 2.5f;

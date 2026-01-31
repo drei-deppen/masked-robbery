@@ -68,6 +68,7 @@ public abstract partial class Character: CharacterBody2D
 
     public virtual bool Catches(Ferret ferret)
     {
+        GD.Print(!ferret.IsMasked() || ferret.IsMasked(GetMaskName()));
         return !ferret.IsMasked() || ferret.IsMasked(GetMaskName());
     }
     

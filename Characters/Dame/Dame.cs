@@ -1,14 +1,15 @@
 using Godot;
+using System;
 using System.Threading.Tasks;
 using MaskedRobbery.Characters;
 
-public partial class Governess : Character
+public partial class Dame : Character
 {
     bool _caught = false;
     
     public override string GetMaskName()
     {
-        return "Governess";
+        return "Dame";
     }
 
     public async override void Yap()
@@ -30,11 +31,10 @@ public partial class Governess : Character
 
     public override bool Catches(Ferret ferret)
     {
-        if (!base.Catches(ferret) && !ferret.IsMasked("Sire")) return false;
-
+        if (!base.Catches(ferret)) return false;
         _caught = true;
         Busy = true;
-        GD.Print("AH!");
+        GD.Print("AAAAAAH!");
         GetNode<AnimatedSprite2D>("Sprite").Play("Caught");
         return true;
     }

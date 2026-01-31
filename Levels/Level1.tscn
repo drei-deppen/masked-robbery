@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cp8vllkmh7ucr"]
+[gd_scene load_steps=14 format=3 uid="uid://cp8vllkmh7ucr"]
 
 [ext_resource type="PackedScene" uid="uid://cqpowkkwqi0n6" path="res://UI/MaskSelector.tscn" id="1_328ns"]
 [ext_resource type="Script" path="res://Levels/Level1.cs" id="1_nfr8y"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://down7up0kj4vg" path="res://Levels/Room.tscn" id="7_o1qey"]
 [ext_resource type="PackedScene" uid="uid://c5il8upn83mah" path="res://Characters/Frederick/Frederick.tscn" id="8_tm0xi"]
 [ext_resource type="PackedScene" uid="uid://csk6d450lrkl0" path="res://Characters/Governess/Governess.tscn" id="8_xc6cd"]
+[ext_resource type="PackedScene" uid="uid://ci2bwmmyaws3o" path="res://Characters/Dame/Dame.tscn" id="9_esgio"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sbx46"]
 size = Vector2(738, 334)
@@ -18,12 +19,15 @@ size = Vector2(20, 700)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vvu5s"]
 size = Vector2(1200, 20)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q7ceg"]
+size = Vector2(800, 310)
+
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_nfr8y")
 
 [node name="Ferret" parent="." instance=ExtResource("2_mq57p")]
 z_index = 100
-position = Vector2(588, 518)
+position = Vector2(105, 498)
 scale = Vector2(0.5, 0.5)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -56,15 +60,20 @@ input_pickable = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Room"]
 position = Vector2(359, 157)
 shape = SubResource("RectangleShape2D_sbx46")
+debug_color = Color(0.591466, 1.3236e-05, 0.275539, 0.419608)
 
 [node name="Boogies" type="Node" parent="."]
 
 [node name="Frederick" parent="Boogies" instance=ExtResource("8_tm0xi")]
-position = Vector2(614, 166)
-scale = Vector2(0.5, 0.5)
+position = Vector2(619, 235)
+scale = Vector2(0.3, 0.3)
 
 [node name="Governess" parent="Boogies" instance=ExtResource("8_xc6cd")]
 position = Vector2(399, 151)
+scale = Vector2(0.5, 0.5)
+
+[node name="Dame" parent="Boogies" instance=ExtResource("9_esgio")]
+position = Vector2(769, 508)
 scale = Vector2(0.5, 0.5)
 
 [node name="Timer" type="Timer" parent="."]
@@ -78,6 +87,7 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("RectangleShape2D_iyyiq")
+debug_color = Color(0, 0.6, 0.0588235, 0.419608)
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 position = Vector2(-30, 330)
@@ -86,6 +96,7 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
 shape = SubResource("RectangleShape2D_iyyiq")
+debug_color = Color(0, 0.6, 0.0588235, 0.419608)
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="."]
 position = Vector2(590, 0)
@@ -94,6 +105,7 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
 shape = SubResource("RectangleShape2D_vvu5s")
+debug_color = Color(0, 0.6, 0.0588235, 0.419608)
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="."]
 position = Vector2(590, 670)
@@ -102,9 +114,19 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
 shape = SubResource("RectangleShape2D_vvu5s")
+debug_color = Color(0, 0.6, 0.0588235, 0.419608)
+
+[node name="Room2" parent="." instance=ExtResource("7_o1qey")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room2"]
+position = Vector2(777, 506)
+shape = SubResource("RectangleShape2D_q7ceg")
+debug_color = Color(0.592157, 0, 0.27451, 0.419608)
 
 [connection signal="MaskSelected" from="CanvasLayer/MaskSelector" to="." method="OnMaskSelected"]
 [connection signal="Caught" from="Room" to="." method="OnCaught"]
 [connection signal="Clicked" from="Boogies/Frederick" to="CanvasLayer/MaskSelector" method="OnCharacterPhotographed"]
 [connection signal="Clicked" from="Boogies/Governess" to="CanvasLayer/MaskSelector" method="OnCharacterPhotographed"]
+[connection signal="Clicked" from="Boogies/Dame" to="CanvasLayer/MaskSelector" method="OnCharacterPhotographed"]
 [connection signal="timeout" from="Timer" to="." method="OnBoogieTimer"]
+[connection signal="Caught" from="Room2" to="." method="OnCaught"]

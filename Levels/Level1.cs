@@ -13,6 +13,7 @@ public partial class Level1 : Node
 	public void OnCaught()
 	{
 		GD.Print("Caught");
+		GetNode<Ferret>("Ferret").Caught();
 	}
 
 	public void OnBoogieTimer()
