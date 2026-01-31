@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://cp8vllkmh7ucr"]
+
+[ext_resource type="PackedScene" uid="uid://cqpowkkwqi0n6" path="res://UI/MaskSelector.tscn" id="1_328ns"]
+[ext_resource type="Script" path="res://Levels/Level1.cs" id="1_nfr8y"]
+[ext_resource type="PackedScene" uid="uid://c752jdl7i4wrc" path="res://Characters/Ferret/Ferret.tscn" id="2_mq57p"]
+
+[node name="Level1" type="Node"]
+script = ExtResource("1_nfr8y")
+
+[node name="Ferret" parent="." instance=ExtResource("2_mq57p")]
+position = Vector2(594, 512)
+scale = Vector2(0.3, 0.3)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(527, 403)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MaskSelector" parent="CanvasLayer" instance=ExtResource("1_328ns")]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[connection signal="MaskSelected" from="CanvasLayer/MaskSelector" to="." method="OnMaskSelected"]

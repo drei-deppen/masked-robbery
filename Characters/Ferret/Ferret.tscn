@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c752jdl7i4wrc"]
+
+[ext_resource type="Script" path="res://Characters/Ferret/Ferret.cs" id="1_aofq6"]
+[ext_resource type="Texture2D" uid="uid://bklg0vonc558o" path="res://Characters/Ferret/Standing.png" id="2_emu2v"]
+
+[node name="Ferret" type="Node2D"]
+script = ExtResource("1_aofq6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_emu2v")
+
+[node name="Masks" type="Node2D" parent="."]
+position = Vector2(0, -830)
+
+[node name="Frog" type="Polygon2D" parent="Masks"]
+visible = false
+polygon = PackedVector2Array(600, 0, 0, 300, -600, 0, 0, -500)

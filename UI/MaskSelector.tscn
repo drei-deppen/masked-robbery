@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqpowkkwqi0n6"]
+
+[ext_resource type="Script" path="res://UI/MaskSelector.cs" id="1_naeel"]
+
+[node name="MaskSelector" type="Panel"]
+custom_minimum_size = Vector2(0, 64)
+offset_bottom = 64.0
+size_flags_horizontal = 3
+script = ExtResource("1_naeel")
+
+[node name="Layout" type="HBoxContainer" parent="."]
+layout_mode = 2
+offset_right = 1152.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CameraButton" type="Button" parent="Layout"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+text = "Camera"
+
+[node name="VSeparator" type="VSeparator" parent="Layout"]
+layout_mode = 2
+
+[node name="Masks" type="HBoxContainer" parent="Layout"]
+layout_mode = 2
+
+[node name="Ferret" type="Button" parent="Layout/Masks"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+text = "Ferret"
+
+[node name="Frog" type="Button" parent="Layout/Masks"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+text = "Frog"
+
+[connection signal="pressed" from="Layout/Masks/Ferret" to="." method="OnFerretPressed"]
+[connection signal="pressed" from="Layout/Masks/Frog" to="." method="OnFrogPressed"]
