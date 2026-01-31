@@ -1,18 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://cp8vllkmh7ucr"]
+[gd_scene load_steps=7 format=3 uid="uid://cp8vllkmh7ucr"]
 
 [ext_resource type="PackedScene" uid="uid://cqpowkkwqi0n6" path="res://UI/MaskSelector.tscn" id="1_328ns"]
 [ext_resource type="Script" path="res://Levels/Level1.cs" id="1_nfr8y"]
 [ext_resource type="PackedScene" uid="uid://c752jdl7i4wrc" path="res://Characters/Ferret/Ferret.tscn" id="2_mq57p"]
+[ext_resource type="PackedScene" uid="uid://cjtkcah6c07nq" path="res://Levels/Camera.tscn" id="4_l3axb"]
+[ext_resource type="Texture2D" uid="uid://bklg0vonc558o" path="res://Characters/Ferret/Standing.png" id="5_p0ad4"]
+[ext_resource type="PackedScene" uid="uid://d3k3wdwgals8" path="res://Levels/Door.tscn" id="6_ogrn0"]
 
-[node name="Level1" type="Node"]
+[node name="Level1" type="Node2D"]
 script = ExtResource("1_nfr8y")
 
 [node name="Ferret" parent="." instance=ExtResource("2_mq57p")]
-position = Vector2(594, 512)
-scale = Vector2(0.3, 0.3)
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(527, 403)
+z_index = 100
+position = Vector2(588, 518)
+scale = Vector2(0.1, 0.1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -24,5 +25,22 @@ anchor_bottom = 1.0
 offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 0
+
+[node name="Camera" parent="." node_paths=PackedStringArray("_focus") instance=ExtResource("4_l3axb")]
+limit_left = -1500
+limit_right = 1500
+_focus = NodePath("../Ferret")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(489, 260)
+texture = ExtResource("5_p0ad4")
+
+[node name="Door" parent="." node_paths=PackedStringArray("_target") instance=ExtResource("6_ogrn0")]
+position = Vector2(117, 493)
+_target = NodePath("../Door2")
+
+[node name="Door2" parent="." node_paths=PackedStringArray("_target") instance=ExtResource("6_ogrn0")]
+position = Vector2(1004, 496)
+_target = NodePath("../Door")
 
 [connection signal="MaskSelected" from="CanvasLayer/MaskSelector" to="." method="OnMaskSelected"]

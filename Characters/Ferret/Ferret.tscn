@@ -1,9 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://c752jdl7i4wrc"]
+[gd_scene load_steps=4 format=3 uid="uid://c752jdl7i4wrc"]
 
 [ext_resource type="Script" path="res://Characters/Ferret/Ferret.cs" id="1_aofq6"]
 [ext_resource type="Texture2D" uid="uid://bklg0vonc558o" path="res://Characters/Ferret/Standing.png" id="2_emu2v"]
 
-[node name="Ferret" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wsrwm"]
+size = Vector2(1200, 2600)
+
+[node name="Ferret" type="CharacterBody2D"]
+collision_mask = 9
 script = ExtResource("1_aofq6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -15,3 +19,6 @@ position = Vector2(0, -830)
 [node name="Frog" type="Polygon2D" parent="Masks"]
 visible = false
 polygon = PackedVector2Array(600, 0, 0, 300, -600, 0, 0, -500)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_wsrwm")
