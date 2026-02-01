@@ -18,7 +18,6 @@ autoplay = true
 
 [node name="GameOverUI" type="CanvasLayer" parent="."]
 layer = 51
-visible = false
 
 [node name="Container" type="MarginContainer" parent="GameOverUI"]
 anchors_preset = 3

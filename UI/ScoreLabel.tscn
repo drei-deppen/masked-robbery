@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://kml061qurwt5"]
+
+[ext_resource type="Script" path="res://UI/ScoreLabel.cs" id="1_myvcq"]
+
+[node name="ScoreLabel" type="Label"]
+script = ExtResource("1_myvcq")
