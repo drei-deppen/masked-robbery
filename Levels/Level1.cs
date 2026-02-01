@@ -7,14 +7,14 @@ public partial class Level1 : Node
 
 	public void Start()
 	{
-		GetNode<CanvasLayer>("UI").Visible = true;
+		GetNode<CanvasLayer>("UI").Show();
 		GetNode<Timer>("BoogieTimer").Start();
 		GD.Print("Level started");
 	}
 
 	public void Stop()
 	{
-		GetNode<CanvasLayer>("UI").Visible = false;
+		GetNode<CanvasLayer>("UI").Hide();
 		GetNode<Timer>("BoogieTimer").Stop();
 		GD.Print("Level stopped");
 	}

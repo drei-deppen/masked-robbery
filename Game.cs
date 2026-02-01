@@ -12,17 +12,28 @@ public partial class Game : Node
 
     private async void _start()
     {
+        GetNode<CanvasLayer>("GameOverUI").Hide();
         await GetNode<LevelHider>("LevelHider").FadeOut();
         GetNode<Level1>("Level1").Start();
     }
 
     public async void OnGameOver()
     {
-        GetNode<Level1>("Level1").Stop();
+        var level1 = GetNode<Level1>("Level1");
+        level1.Stop();
         await Task.Delay(1000);
         await GetNode<LevelHider>("LevelHider").FadeIn();
-        GetNode<Level1>("Level1").QueueFree();
+        RemoveChild(level1);
+        level1.QueueFree();
         var scene = ResourceLoader.Load<PackedScene>("res://Levels/Level1.tscn").Instantiate();
+        scene.Name = "Level1";
         AddChild(scene);
+        GetNode<Ferret>("Level1/Ferret").GameOver += OnGameOver;
+        GetNode<CanvasLayer>("GameOverUI").Show();
+    }
+
+    public void OnRetry()
+    {
+        _start();
     }
 }

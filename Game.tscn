@@ -16,6 +16,24 @@ script = ExtResource("1_an6ew")
 stream = ExtResource("4_kkixj")
 autoplay = true
 
+[node name="GameOverUI" type="CanvasLayer" parent="."]
+layer = 51
+visible = false
+
+[node name="Button" type="Button" parent="GameOverUI"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -31.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Retry"
+
 [connection signal="GameOver" from="Level1/Ferret" to="." method="OnGameOver"]
+[connection signal="pressed" from="GameOverUI/Button" to="." method="OnRetry"]
 
 [editable path="Level1"]
