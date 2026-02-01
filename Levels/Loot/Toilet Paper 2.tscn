@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://3b1u4lknftnm"]
+
+[ext_resource type="PackedScene" uid="uid://cy51dj2rykoet" path="res://Levels/Loot.tscn" id="1_hhj0q"]
+[ext_resource type="Texture2D" uid="uid://ubbxxak5ihvu" path="res://Levels/Loot/Toilet Paper 2.png" id="2_7wrp0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j0rni"]
+resource_local_to_scene = true
+size = Vector2(43, 69)
+
+[node name="ToiletPaper2" type="Node2D"]
+
+[node name="Loot" parent="." instance=ExtResource("1_hhj0q")]
+
+[node name="Books2" type="Sprite2D" parent="Loot"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_7wrp0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Loot"]
+position = Vector2(-1.5, 4.5)
+shape = SubResource("RectangleShape2D_j0rni")
+debug_color = Color(0.7, 0.641667, 0, 0.419608)

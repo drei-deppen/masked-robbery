@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dyaswqutc7426"]
+
+[ext_resource type="PackedScene" uid="uid://cy51dj2rykoet" path="res://Levels/Loot.tscn" id="1_awbo5"]
+[ext_resource type="Texture2D" uid="uid://47f1nj1pett3" path="res://Levels/Loot/Chandeliers 2.png" id="2_yn88j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sm73t"]
+resource_local_to_scene = true
+size = Vector2(197, 315)
+
+[node name="Chandeliers2" type="Node2D"]
+
+[node name="Loot" parent="." instance=ExtResource("1_awbo5")]
+
+[node name="Books2" type="Sprite2D" parent="Loot"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_yn88j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Loot"]
+position = Vector2(3.5, 65.5)
+shape = SubResource("RectangleShape2D_sm73t")
+debug_color = Color(0.7, 0.641667, 0, 0.419608)
