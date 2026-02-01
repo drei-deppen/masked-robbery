@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Threading.Tasks;
+using MaskedRobbery;
 
 public partial class Game : Node
 {
@@ -12,6 +13,7 @@ public partial class Game : Node
 
 	private async void _start()
 	{
+		ScoreService.Reset();
 		GetNode<CanvasLayer>("GameOverUI").Hide();
 		await GetNode<LevelHider>("LevelHider").FadeOut();
 		GetNode<Level1>("Level1").Start();
