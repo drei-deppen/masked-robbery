@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dt8df0uxmglkc"]
+[gd_scene load_steps=5 format=3 uid="uid://o7c8gd8c75b1"]
 
-[ext_resource type="PackedScene" uid="uid://cy51dj2rykoet" path="res://Levels/Loot.tscn" id="1_1qjj0"]
+[ext_resource type="PackedScene" uid="uid://dtdu7bx0caeij" path="res://Levels/Loot.tscn" id="1_1qjj0"]
+[ext_resource type="AudioStream" uid="uid://byindmuqt8gtu" path="res://Audio/Effects/tok.ogg" id="2_6xsso"]
 [ext_resource type="Texture2D" uid="uid://33qd3yklaih7" path="res://Levels/Loot/Picture 1.png" id="2_v555v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1jnuj"]
@@ -9,7 +10,8 @@ size = Vector2(150, 220)
 [node name="Picture1" type="Node2D"]
 
 [node name="Loot" parent="." instance=ExtResource("1_1qjj0")]
-_value = 5000
+_value = 5069
+_grabSound = ExtResource("2_6xsso")
 
 [node name="Sprite2D" type="Sprite2D" parent="Loot"]
 position = Vector2(2, -2)

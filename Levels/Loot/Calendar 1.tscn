@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://s0t6af463p6e"]
+[gd_scene load_steps=5 format=3 uid="uid://b7b5r6qvf6noh"]
 
-[ext_resource type="PackedScene" uid="uid://cy51dj2rykoet" path="res://Levels/Loot.tscn" id="1_88y64"]
+[ext_resource type="PackedScene" uid="uid://dtdu7bx0caeij" path="res://Levels/Loot.tscn" id="1_88y64"]
+[ext_resource type="AudioStream" uid="uid://dvrf3v4ulmqq2" path="res://Audio/Effects/paper.ogg" id="2_3hvso"]
 [ext_resource type="Texture2D" uid="uid://cvywed43drc8v" path="res://Levels/Loot/Calendar 1.png" id="2_mkdvu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_btw06"]
@@ -9,7 +10,8 @@ size = Vector2(76, 121)
 [node name="Calendar1" type="Node2D"]
 
 [node name="Loot" parent="." instance=ExtResource("1_88y64")]
-_value = 30
+_value = 12
+_grabSound = ExtResource("2_3hvso")
 
 [node name="Calendar1" type="Sprite2D" parent="Loot"]
 scale = Vector2(0.5, 0.5)

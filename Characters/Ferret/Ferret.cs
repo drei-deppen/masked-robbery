@@ -18,6 +18,18 @@ public partial class Ferret : CharacterBody2D
 	private Node2D _masks;
 	private AnimatedSprite2D _sprite;
 	private AudioStreamPlayer2D _stepSounds;
+	private AudioStreamPlayer2D _grabSound;
+
+	public override void _Ready()
+	{
+		base._Ready();
+		_masks = GetNode<Node2D>("Masks");
+		_sprite = GetNode<AnimatedSprite2D>("Sprite");
+		_stepSounds = GetNode<AudioStreamPlayer2D>("StepSounds");
+		
+		_grabSound = new AudioStreamPlayer2D();
+		AddChild(_grabSound);
+	}
 
 	public void Caught()
 	{
@@ -27,23 +39,19 @@ public partial class Ferret : CharacterBody2D
 		EmitSignal(SignalName.GameOver);
 	}
 
-	public async Task Grab()
+	public async Task Grab(AudioStream sound = null)
 	{
 		_sprite.Play("Grabbing");
 		await ToSignal(_sprite, "animation_finished");
+		
+		_grabSound.Stream = sound;
+		_grabSound.Playing = true;
+
 	}
 
 	public void Idle()
 	{
 		_sprite.Play("Idle");
-	}
-
-	public override void _Ready()
-	{
-		base._Ready();
-		_masks = GetNode<Node2D>("Masks");
-		_sprite = GetNode<AnimatedSprite2D>("Sprite");
-		_stepSounds = GetNode<AudioStreamPlayer2D>("StepSounds");
 	}
 	
 	public void OnFlashed() => _Flash.Flashing();

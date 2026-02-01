@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bqxgjadfj6q42"]
+[gd_scene load_steps=5 format=3 uid="uid://dtk4327kbb6f1"]
 
-[ext_resource type="PackedScene" uid="uid://cy51dj2rykoet" path="res://Levels/Loot.tscn" id="1_hp4mw"]
+[ext_resource type="PackedScene" uid="uid://dtdu7bx0caeij" path="res://Levels/Loot.tscn" id="1_hp4mw"]
+[ext_resource type="AudioStream" uid="uid://77pgskmy4j6l" path="res://Audio/Effects/carpet.ogg" id="2_3crsq"]
 [ext_resource type="Texture2D" uid="uid://bo5oratqyiu72" path="res://Levels/Loot/Carpet 1.png" id="2_tkf0o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tlots"]
@@ -9,7 +10,8 @@ size = Vector2(503, 77)
 [node name="Carpet1" type="Node2D"]
 
 [node name="Loot" parent="." instance=ExtResource("1_hp4mw")]
-_value = 350
+_value = 312
+_grabSound = ExtResource("2_3crsq")
 
 [node name="Carpet1" type="Sprite2D" parent="Loot"]
 scale = Vector2(0.5, 0.5)
