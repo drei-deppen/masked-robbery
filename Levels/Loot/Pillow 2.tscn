@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bfgkje7u05hfx"]
+[gd_scene load_steps=5 format=3 uid="uid://clchs6l7733ke"]
 
-[ext_resource type="PackedScene" uid="uid://cy51dj2rykoet" path="res://Levels/Loot.tscn" id="1_jg4ar"]
+[ext_resource type="PackedScene" uid="uid://dtdu7bx0caeij" path="res://Levels/Loot.tscn" id="1_jg4ar"]
 [ext_resource type="Texture2D" uid="uid://bng4yubs1vpxa" path="res://Levels/Loot/Pillows 2.png" id="2_eb4i1"]
+[ext_resource type="AudioStream" uid="uid://dvstqf3fq7o0i" path="res://Audio/Effects/pillow.ogg" id="2_t2h44"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_15n7e"]
 resource_local_to_scene = true
@@ -10,6 +11,8 @@ size = Vector2(141, 85)
 [node name="Pillow2" type="Node2D"]
 
 [node name="Loot" parent="." instance=ExtResource("1_jg4ar")]
+_value = 20
+_grabSound = ExtResource("2_t2h44")
 
 [node name="Books2" type="Sprite2D" parent="Loot"]
 scale = Vector2(0.5, 0.5)

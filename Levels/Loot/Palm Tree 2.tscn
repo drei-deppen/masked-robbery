@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://d4krlgfoqh1q"]
+[gd_scene load_steps=5 format=3 uid="uid://kr4qymoijajc"]
 
-[ext_resource type="PackedScene" uid="uid://cy51dj2rykoet" path="res://Levels/Loot.tscn" id="1_8a4cf"]
+[ext_resource type="PackedScene" uid="uid://dtdu7bx0caeij" path="res://Levels/Loot.tscn" id="1_8a4cf"]
+[ext_resource type="AudioStream" uid="uid://vot2r3tkqoho" path="res://Audio/Effects/bush.mp3" id="2_fp5jl"]
 [ext_resource type="Texture2D" uid="uid://befvho82e6rom" path="res://Levels/Loot/Palm Tree 2.png" id="2_thhi1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_csf24"]
@@ -10,6 +11,8 @@ size = Vector2(197, 249)
 [node name="PalmTree2" type="Node2D"]
 
 [node name="Loot" parent="." instance=ExtResource("1_8a4cf")]
+_value = 37
+_grabSound = ExtResource("2_fp5jl")
 
 [node name="Books2" type="Sprite2D" parent="Loot"]
 scale = Vector2(0.5, 0.5)

@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://drhoqnau1yxbg"]
+[gd_scene load_steps=5 format=3 uid="uid://btmmbm8ntwlsl"]
 
-[ext_resource type="PackedScene" uid="uid://cy51dj2rykoet" path="res://Levels/Loot.tscn" id="1_e3585"]
+[ext_resource type="PackedScene" uid="uid://dtdu7bx0caeij" path="res://Levels/Loot.tscn" id="1_e3585"]
+[ext_resource type="AudioStream" uid="uid://b0uou1mjhno13" path="res://Audio/Effects/towel.ogg" id="2_5ajps"]
 [ext_resource type="Texture2D" uid="uid://d31ib6kul2obe" path="res://Levels/Loot/Towels 2.png" id="2_ubd7b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dxmfj"]
@@ -10,8 +11,10 @@ size = Vector2(80, 52)
 [node name="Towels2" type="Node2D"]
 
 [node name="Loot" parent="." instance=ExtResource("1_e3585")]
+_value = 24
+_grabSound = ExtResource("2_5ajps")
 
-[node name="Books2" type="Sprite2D" parent="Loot"]
+[node name="Towels" type="Sprite2D" parent="Loot"]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_ubd7b")
 

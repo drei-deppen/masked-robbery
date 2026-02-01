@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://3b1u4lknftnm"]
+[gd_scene load_steps=5 format=3 uid="uid://bl3thivddhxeg"]
 
-[ext_resource type="PackedScene" uid="uid://cy51dj2rykoet" path="res://Levels/Loot.tscn" id="1_hhj0q"]
+[ext_resource type="PackedScene" uid="uid://dtdu7bx0caeij" path="res://Levels/Loot.tscn" id="1_hhj0q"]
 [ext_resource type="Texture2D" uid="uid://ubbxxak5ihvu" path="res://Levels/Loot/Toilet Paper 2.png" id="2_7wrp0"]
+[ext_resource type="AudioStream" uid="uid://bkf5mdm2eui1f" path="res://Audio/Effects/toiletpaper.ogg" id="2_y46lj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j0rni"]
 resource_local_to_scene = true
@@ -10,6 +11,8 @@ size = Vector2(43, 69)
 [node name="ToiletPaper2" type="Node2D"]
 
 [node name="Loot" parent="." instance=ExtResource("1_hhj0q")]
+_value = 500
+_grabSound = ExtResource("2_y46lj")
 
 [node name="Books2" type="Sprite2D" parent="Loot"]
 scale = Vector2(0.5, 0.5)
