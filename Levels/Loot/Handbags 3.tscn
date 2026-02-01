@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://c6f78opekjqcf"]
+
+[ext_resource type="PackedScene" uid="uid://cy51dj2rykoet" path="res://Levels/Loot.tscn" id="1_ksgfk"]
+[ext_resource type="AudioStream" uid="uid://bjhs8l70kh07i" path="res://Audio/Effects/chandelier.ogg" id="2_nlip5"]
+[ext_resource type="Texture2D" uid="uid://d1myk5wcqd1gd" path="res://Levels/Loot/Handbags 3.png" id="3_ema8j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_drhed"]
+resource_local_to_scene = true
+size = Vector2(151, 71)
+
+[node name="Handbags3" type="Node2D"]
+
+[node name="Loot" parent="." instance=ExtResource("1_ksgfk")]
+_value = 554
+_grabSound = ExtResource("2_nlip5")
+
+[node name="Books2" type="Sprite2D" parent="Loot"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_ema8j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Loot"]
+position = Vector2(-1.5, -1.5)
+shape = SubResource("RectangleShape2D_drhed")
+debug_color = Color(0.7, 0.641667, 0, 0.419608)

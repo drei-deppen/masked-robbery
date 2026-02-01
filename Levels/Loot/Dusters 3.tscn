@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://oajdchupiua6"]
+
+[ext_resource type="PackedScene" uid="uid://cy51dj2rykoet" path="res://Levels/Loot.tscn" id="1_siq20"]
+[ext_resource type="AudioStream" uid="uid://bjhs8l70kh07i" path="res://Audio/Effects/chandelier.ogg" id="2_ygxk5"]
+[ext_resource type="Texture2D" uid="uid://djbmmhidhd8bt" path="res://Levels/Loot/Dusters 3.png" id="3_fdkfm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_otyls"]
+resource_local_to_scene = true
+size = Vector2(229, 276)
+
+[node name="Dusters3" type="Node2D"]
+
+[node name="Loot" parent="." instance=ExtResource("1_siq20")]
+_value = 554
+_grabSound = ExtResource("2_ygxk5")
+
+[node name="Books2" type="Sprite2D" parent="Loot"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_fdkfm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Loot"]
+position = Vector2(-3.5, 0)
+shape = SubResource("RectangleShape2D_otyls")
+debug_color = Color(0.7, 0.641667, 0, 0.419608)

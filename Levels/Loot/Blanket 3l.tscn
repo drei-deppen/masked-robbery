@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://djrgp3yefp160"]
+
+[ext_resource type="PackedScene" uid="uid://cy51dj2rykoet" path="res://Levels/Loot.tscn" id="1_wp0st"]
+[ext_resource type="AudioStream" uid="uid://bjhs8l70kh07i" path="res://Audio/Effects/chandelier.ogg" id="2_px1gp"]
+[ext_resource type="Texture2D" uid="uid://bu757ofhngay" path="res://Levels/Loot/Blanket 3l.png" id="3_vk622"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_67lkt"]
+resource_local_to_scene = true
+size = Vector2(193, 61)
+
+[node name="Blanket3l" type="Node2D"]
+
+[node name="Loot" parent="." instance=ExtResource("1_wp0st")]
+_value = 554
+_grabSound = ExtResource("2_px1gp")
+
+[node name="Books2" type="Sprite2D" parent="Loot"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_vk622")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Loot"]
+position = Vector2(0.5, 1.5)
+shape = SubResource("RectangleShape2D_67lkt")
+debug_color = Color(0.7, 0.641667, 0, 0.419608)
