@@ -66,8 +66,8 @@ public partial class Ferret : CharacterBody2D
 			{
 				mask2d.Visible = mask2d.Name == maskName;
 				if (mask2d.Visible) GD.Print(Name + " now masks as " + maskName);
-				CurrentRoom?.NewFace(this);
 			}
+		CurrentRoom?.NewFace(this);
 	}
 
 	public bool IsMasked(string maskName = null)
