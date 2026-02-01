@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://nqbts7kmt27k"]
+
+[ext_resource type="PackedScene" uid="uid://cy51dj2rykoet" path="res://Levels/Loot.tscn" id="1_828q5"]
+[ext_resource type="Texture2D" uid="uid://bct5m3yp0fdf4" path="res://Levels/Loot/Picture 2b .png" id="2_fsv2c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vkxgb"]
+resource_local_to_scene = true
+size = Vector2(197, 162)
+
+[node name="Picture2b" type="Node2D"]
+
+[node name="Loot" parent="." instance=ExtResource("1_828q5")]
+
+[node name="Books2" type="Sprite2D" parent="Loot"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_fsv2c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Loot"]
+position = Vector2(3.5, 2)
+shape = SubResource("RectangleShape2D_vkxgb")
+debug_color = Color(0.7, 0.641667, 0, 0.419608)

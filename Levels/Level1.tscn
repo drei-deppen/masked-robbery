@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cp8vllkmh7ucr"]
+[gd_scene load_steps=45 format=3 uid="uid://cp8vllkmh7ucr"]
 
 [ext_resource type="PackedScene" uid="uid://cqpowkkwqi0n6" path="res://UI/MaskSelector.tscn" id="1_328ns"]
 [ext_resource type="Script" path="res://Levels/Level1.cs" id="1_nfr8y"]
@@ -11,16 +11,33 @@
 [ext_resource type="PackedScene" uid="uid://csk6d450lrkl0" path="res://Characters/Governess/Governess.tscn" id="8_xc6cd"]
 [ext_resource type="PackedScene" uid="uid://ci2bwmmyaws3o" path="res://Characters/Dame/Dame.tscn" id="9_esgio"]
 [ext_resource type="PackedScene" uid="uid://2vmr3w010lpj" path="res://Characters/Baby/Baby.tscn" id="10_2j16d"]
-[ext_resource type="PackedScene" uid="uid://o7c8gd8c75b1" path="res://Levels/Loot/Picture 1.tscn" id="12_e7sap"]
-[ext_resource type="PackedScene" uid="uid://ttpt1yx568as" path="res://Levels/Loot/Picture 1b.tscn" id="12_jeo2o"]
-[ext_resource type="PackedScene" uid="uid://xdl4d3hrkgp3" path="res://Levels/Loot/Bottle 1.tscn" id="13_mdbb3"]
-[ext_resource type="PackedScene" uid="uid://db7xisix3e18i" path="res://Levels/Loot/Palm Tree 1.tscn" id="13_w1tq3"]
-[ext_resource type="PackedScene" path="res://Levels/Loot/Vase 1a.tscn" id="14_hk4ga"]
-[ext_resource type="PackedScene" uid="uid://tlda5uavjr51" path="res://Levels/Loot/Vase 1b.tscn" id="15_lqj8j"]
-[ext_resource type="PackedScene" uid="uid://d0p1prey7bi0m" path="res://Levels/Loot/Photo 1.tscn" id="16_3l33f"]
+[ext_resource type="PackedScene" uid="uid://dt8df0uxmglkc" path="res://Levels/Loot/Picture 1.tscn" id="12_e7sap"]
+[ext_resource type="PackedScene" uid="uid://bhj0mqto0wpu4" path="res://Levels/Loot/Picture 1b.tscn" id="12_jeo2o"]
+[ext_resource type="PackedScene" uid="uid://cg2vuxsgjk8ol" path="res://Levels/Loot/Bottle 1.tscn" id="13_mdbb3"]
+[ext_resource type="PackedScene" uid="uid://hitvtavswqst" path="res://Levels/Loot/Palm Tree 1.tscn" id="13_w1tq3"]
+[ext_resource type="PackedScene" uid="uid://drhcn7jvu87gu" path="res://Levels/Loot/Vase 1a.tscn" id="14_hk4ga"]
+[ext_resource type="Texture2D" uid="uid://btr0vhnb8c77o" path="res://Levels/Backdrops/Room 2.png" id="14_u86hk"]
+[ext_resource type="PackedScene" uid="uid://d4krlgfoqh1q" path="res://Levels/Loot/Palm Tree 2.tscn" id="15_g6r1b"]
+[ext_resource type="PackedScene" uid="uid://bbnwu1p4airp3" path="res://Levels/Loot/Vase 1b.tscn" id="15_lqj8j"]
+[ext_resource type="PackedScene" uid="uid://di86tqrqecg26" path="res://Levels/Loot/Books 2b.tscn" id="16_2hoqv"]
+[ext_resource type="PackedScene" uid="uid://dwyavd24q4b8x" path="res://Levels/Loot/Photo 1.tscn" id="16_3l33f"]
+[ext_resource type="PackedScene" uid="uid://duq1vpnpagotq" path="res://Levels/Loot/Office Chair 2.tscn" id="17_g3ujb"]
+[ext_resource type="PackedScene" uid="uid://djldep8f3ja81" path="res://Levels/Loot/Books 2a.tscn" id="18_1x5cb"]
+[ext_resource type="PackedScene" uid="uid://b0283ubgk1w4w" path="res://Levels/Loot/Mirrior 2.tscn" id="19_5g0tj"]
 [ext_resource type="Texture2D" uid="uid://dasb3qn0elu56" path="res://Levels/Loot/Wall 1.png" id="19_j625f"]
-[ext_resource type="PackedScene" uid="uid://d08kmeyp145qr" path="res://Levels/Loot/Fruit 1.tscn" id="20_bjkb4"]
-[ext_resource type="PackedScene" uid="uid://b7b5r6qvf6noh" path="res://Levels/Loot/Calendar 1.tscn" id="21_l83na"]
+[ext_resource type="PackedScene" uid="uid://b1vdguu110w85" path="res://Levels/Loot/Towel 2.tscn" id="20_8a67q"]
+[ext_resource type="PackedScene" uid="uid://h6458lnrcpry" path="res://Levels/Loot/Fruit 1.tscn" id="20_bjkb4"]
+[ext_resource type="PackedScene" uid="uid://s0t6af463p6e" path="res://Levels/Loot/Calendar 1.tscn" id="21_l83na"]
+[ext_resource type="PackedScene" uid="uid://drhoqnau1yxbg" path="res://Levels/Loot/Towels 2.tscn" id="21_nvgls"]
+[ext_resource type="PackedScene" uid="uid://dow7c25gi01ok" path="res://Levels/Loot/Toilet Brush 2.tscn" id="22_fyhk4"]
+[ext_resource type="PackedScene" uid="uid://3b1u4lknftnm" path="res://Levels/Loot/Toilet Paper 2.tscn" id="23_153wy"]
+[ext_resource type="PackedScene" uid="uid://nqbts7kmt27k" path="res://Levels/Loot/Picture 2b.tscn" id="24_pirr4"]
+[ext_resource type="PackedScene" uid="uid://dyaswqutc7426" path="res://Levels/Loot/Chandeliers 2.tscn" id="25_0nrnu"]
+[ext_resource type="PackedScene" uid="uid://o6yhcolq8ryq" path="res://Levels/Loot/Picture 2a.tscn" id="26_lijtv"]
+[ext_resource type="PackedScene" uid="uid://ee0ymdatv02d" path="res://Levels/Loot/Stool 2.tscn" id="27_goub1"]
+[ext_resource type="PackedScene" uid="uid://df87a7p6n3osg" path="res://Levels/Loot/Flower 2.tscn" id="28_il434"]
+[ext_resource type="PackedScene" uid="uid://bfgkje7u05hfx" path="res://Levels/Loot/Pillow 2.tscn" id="29_1xrxi"]
+[ext_resource type="PackedScene" uid="uid://bcsc62kjygg0e" path="res://Levels/Loot/Telly 2.tscn" id="30_scscf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q7ceg"]
 size = Vector2(1273, 443)
@@ -28,14 +45,23 @@ size = Vector2(1273, 443)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vsn2d"]
 size = Vector2(891.25, 445.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wc7xg"]
+size = Vector2(835, 449)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_566q5"]
+size = Vector2(603, 433)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uwufr"]
+size = Vector2(901, 435)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iyyiq"]
-size = Vector2(14.75, 902.5)
+size = Vector2(73, 1324)
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_nfr8y")
 
 [node name="Door" parent="." node_paths=PackedStringArray("_target") instance=ExtResource("6_ogrn0")]
-position = Vector2(7, 137)
+position = Vector2(2333, 175)
 _target = NodePath("../Door2")
 _sound = null
 
@@ -80,24 +106,102 @@ position = Vector2(1905, 574)
 [node name="Calendar1" parent="GroundLevel/Loot" instance=ExtResource("21_l83na")]
 position = Vector2(2142, 495)
 
-[node name="Room 1" parent="GroundLevel" instance=ExtResource("7_o1qey")]
+[node name="Foyer" parent="GroundLevel" instance=ExtResource("7_o1qey")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GroundLevel/Room 1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroundLevel/Foyer"]
 position = Vector2(846.5, 549)
 shape = SubResource("RectangleShape2D_q7ceg")
 debug_color = Color(0.592157, 0, 0.27451, 0.419608)
 
-[node name="Room 2" parent="GroundLevel" instance=ExtResource("7_o1qey")]
+[node name="Kitchen" parent="GroundLevel" instance=ExtResource("7_o1qey")]
 position = Vector2(-795, 188)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GroundLevel/Room 2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroundLevel/Kitchen"]
 position = Vector2(2721, 369)
 shape = SubResource("RectangleShape2D_vsn2d")
 debug_color = Color(0.592157, 0, 0.27451, 0.419608)
 
+[node name="MidLevel" type="Node2D" parent="."]
+
+[node name="Room2" type="Sprite2D" parent="MidLevel"]
+position = Vector2(1196, 106)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_u86hk")
+
+[node name="Office" parent="MidLevel" instance=ExtResource("7_o1qey")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MidLevel/Office"]
+position = Vector2(428.5, 105.5)
+shape = SubResource("RectangleShape2D_wc7xg")
+debug_color = Color(0.592157, 0, 0.27451, 0.419608)
+
+[node name="Toilet" parent="MidLevel" instance=ExtResource("7_o1qey")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MidLevel/Toilet"]
+position = Vector2(1163.5, 103.5)
+shape = SubResource("RectangleShape2D_566q5")
+debug_color = Color(0.592157, 0, 0.27451, 0.419608)
+
+[node name="Living Room" parent="MidLevel" instance=ExtResource("7_o1qey")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MidLevel/Living Room"]
+position = Vector2(1927.5, 104.5)
+shape = SubResource("RectangleShape2D_uwufr")
+debug_color = Color(0.592157, 0, 0.27451, 0.419608)
+
+[node name="Loot" type="Node" parent="MidLevel"]
+
+[node name="PalmTree2" parent="MidLevel/Loot" instance=ExtResource("15_g6r1b")]
+position = Vector2(296, 172)
+
+[node name="Books2b" parent="MidLevel/Loot" instance=ExtResource("16_2hoqv")]
+position = Vector2(495, 103)
+
+[node name="OfficeChair2" parent="MidLevel/Loot" instance=ExtResource("17_g3ujb")]
+position = Vector2(446, 229)
+
+[node name="Books2a" parent="MidLevel/Loot" instance=ExtResource("18_1x5cb")]
+position = Vector2(707, 38)
+
+[node name="Mirrior2" parent="MidLevel/Loot" instance=ExtResource("19_5g0tj")]
+position = Vector2(1060, 52)
+
+[node name="Towel2" parent="MidLevel/Loot" instance=ExtResource("20_8a67q")]
+position = Vector2(956, 157)
+
+[node name="Towels2" parent="MidLevel/Loot" instance=ExtResource("21_nvgls")]
+position = Vector2(1179, 111)
+
+[node name="ToiletBrush2" parent="MidLevel/Loot" instance=ExtResource("22_fyhk4")]
+position = Vector2(1364, 258)
+
+[node name="ToiletPaper2" parent="MidLevel/Loot" instance=ExtResource("23_153wy")]
+position = Vector2(1391, 176)
+
+[node name="Picture2b" parent="MidLevel/Loot" instance=ExtResource("24_pirr4")]
+position = Vector2(1886, 19)
+
+[node name="Chandeliers2" parent="MidLevel/Loot" instance=ExtResource("25_0nrnu")]
+position = Vector2(1782, -26)
+
+[node name="Picture2a" parent="MidLevel/Loot" instance=ExtResource("26_lijtv")]
+position = Vector2(475, -55)
+
+[node name="Stool2" parent="MidLevel/Loot" instance=ExtResource("27_goub1")]
+position = Vector2(1619, 250)
+
+[node name="Flower2" parent="MidLevel/Loot" instance=ExtResource("28_il434")]
+position = Vector2(1625, 151)
+
+[node name="Pillow2" parent="MidLevel/Loot" instance=ExtResource("29_1xrxi")]
+position = Vector2(2002, 203)
+
+[node name="Telly2" parent="MidLevel/Loot" instance=ExtResource("30_scscf")]
+position = Vector2(2160, 174)
+
 [node name="Camera" parent="." node_paths=PackedStringArray("_focus") instance=ExtResource("4_l3axb")]
 limit_left = 10
-limit_right = 2500
+limit_right = 2382
 limit_bottom = 782
 _focus = NodePath("../Ferret")
 
@@ -125,7 +229,7 @@ position = Vector2(619, 235)
 scale = Vector2(0.3, 0.3)
 
 [node name="Governess" parent="Boogies" instance=ExtResource("8_xc6cd")]
-position = Vector2(399, 151)
+position = Vector2(278, 176)
 scale = Vector2(0.5, 0.5)
 
 [node name="Dame" parent="Boogies" instance=ExtResource("9_esgio")]
@@ -133,7 +237,7 @@ position = Vector2(945, 615)
 scale = Vector2(0.5, 0.5)
 
 [node name="Baby" parent="Boogies" instance=ExtResource("10_2j16d")]
-position = Vector2(989, 230)
+position = Vector2(-1049, 179)
 scale = Vector2(0.5, 0.5)
 
 [node name="BoogieTimer" type="Timer" parent="."]
@@ -147,7 +251,7 @@ collision_layer = 4
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Barriers/StaticBody2D"]
-position = Vector2(1172.63, 0.75)
+position = Vector2(1191.5, -202)
 shape = SubResource("RectangleShape2D_iyyiq")
 debug_color = Color(0, 0.6, 0.0588235, 0.419608)
 
@@ -157,7 +261,7 @@ collision_layer = 4
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Barriers/StaticBody2D2"]
-position = Vector2(26, 12)
+position = Vector2(31, -187)
 shape = SubResource("RectangleShape2D_iyyiq")
 debug_color = Color(0, 0.6, 0.0588235, 0.419608)
 
@@ -168,8 +272,23 @@ position = Vector2(1473, 556)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("19_j625f")
 
-[connection signal="Caught" from="GroundLevel/Room 1" to="." method="OnCaught"]
-[connection signal="Caught" from="GroundLevel/Room 2" to="." method="OnCaught"]
+[node name="Wall2" type="Sprite2D" parent="."]
+z_index = 500
+position = Vector2(1466, 110)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("19_j625f")
+
+[node name="Wall3" type="Sprite2D" parent="."]
+z_index = 500
+position = Vector2(876, 110)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("19_j625f")
+
+[connection signal="Caught" from="GroundLevel/Foyer" to="." method="OnCaught"]
+[connection signal="Caught" from="GroundLevel/Kitchen" to="." method="OnCaught"]
+[connection signal="Caught" from="MidLevel/Office" to="." method="OnCaught"]
+[connection signal="Caught" from="MidLevel/Toilet" to="." method="OnCaught"]
+[connection signal="Caught" from="MidLevel/Living Room" to="." method="OnCaught"]
 [connection signal="Flashed" from="UI/MaskSelector" to="Ferret" method="OnFlashed"]
 [connection signal="MaskSelected" from="UI/MaskSelector" to="." method="OnMaskSelected"]
 [connection signal="Clicked" from="Boogies/Frederick" to="UI/MaskSelector" method="OnCharacterPhotographed"]

@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dow7c25gi01ok"]
+
+[ext_resource type="PackedScene" uid="uid://cy51dj2rykoet" path="res://Levels/Loot.tscn" id="1_oqsba"]
+[ext_resource type="Texture2D" uid="uid://jtj2acixvaru" path="res://Levels/Loot/Toilet Brush 2.png" id="2_oiojd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mjkc3"]
+resource_local_to_scene = true
+size = Vector2(35, 72)
+
+[node name="ToiletBrush2" type="Node2D"]
+
+[node name="Loot" parent="." instance=ExtResource("1_oqsba")]
+
+[node name="Books2" type="Sprite2D" parent="Loot"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_oiojd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Loot"]
+position = Vector2(-2.5, 1)
+shape = SubResource("RectangleShape2D_mjkc3")
+debug_color = Color(0.7, 0.641667, 0, 0.419608)

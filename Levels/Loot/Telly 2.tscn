@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bcsc62kjygg0e"]
+
+[ext_resource type="PackedScene" uid="uid://cy51dj2rykoet" path="res://Levels/Loot.tscn" id="1_qptqj"]
+[ext_resource type="Texture2D" uid="uid://r30g0pekx6ug" path="res://Levels/Loot/Telly 2.png" id="2_b220i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xa1uo"]
+resource_local_to_scene = true
+size = Vector2(91, 138)
+
+[node name="Telly2" type="Node2D"]
+
+[node name="Loot" parent="." instance=ExtResource("1_qptqj")]
+
+[node name="Books2" type="Sprite2D" parent="Loot"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_b220i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Loot"]
+position = Vector2(-0.5, 4)
+shape = SubResource("RectangleShape2D_xa1uo")
+debug_color = Color(0.7, 0.641667, 0, 0.419608)

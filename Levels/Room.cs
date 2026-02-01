@@ -18,6 +18,7 @@ public partial class Room : Area2D
         {
             case Ferret ferret:
                 _ferret = ferret;
+                _ferret.CurrentRoom = this;
                 _characters.ForEach(character =>
                 {
                     character.Look((_ferret.GlobalPosition - character.GlobalPosition).X < 0 ? "left" : "right");
@@ -30,7 +31,12 @@ public partial class Room : Area2D
         }
 
         if (_ferret == null || _characters.Count <= 0) return;
-        if (_characters.Any(character => character.Catches(_ferret)))
+        NewFace(_ferret);
+    }
+
+    public void NewFace(Ferret ferret)
+    {
+        if (_characters.Any(character => character.Catches(ferret)))
             EmitSignal(SignalName.Caught);
     }
 
@@ -45,6 +51,7 @@ public partial class Room : Area2D
         switch (body)
         {
             case Ferret:
+                _ferret.CurrentRoom = null;
                 _ferret = null;
                 break;
             case Character character:

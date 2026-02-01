@@ -7,6 +7,8 @@ public partial class Ferret : CharacterBody2D
 	
 	[Signal]
 	public delegate void GameOverEventHandler();
+
+	public Room CurrentRoom { get; set; }
 	
 	private Vector2 _direction = Vector2.Zero;
 	private float _speed = 5f;
@@ -64,6 +66,7 @@ public partial class Ferret : CharacterBody2D
 			{
 				mask2d.Visible = mask2d.Name == maskName;
 				if (mask2d.Visible) GD.Print(Name + " now masks as " + maskName);
+				CurrentRoom?.NewFace(this);
 			}
 	}
 
