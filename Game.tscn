@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://ccjx82lfv08dn"]
+[gd_scene load_steps=8 format=3 uid="uid://ccjx82lfv08dn"]
 
 [ext_resource type="PackedScene" uid="uid://cp8vllkmh7ucr" path="res://Levels/Level1.tscn" id="1_6t5cy"]
 [ext_resource type="Script" path="res://Game.cs" id="1_an6ew"]
 [ext_resource type="PackedScene" uid="uid://bh0i4xw3g0i8h" path="res://UI/LevelHider.tscn" id="2_bg0ma"]
 [ext_resource type="AudioStream" uid="uid://da3ygmm4h2q6s" path="res://Audio/Music/spooky robber.ogg" id="4_kkixj"]
 [ext_resource type="PackedScene" uid="uid://kml061qurwt5" path="res://UI/ScoreLabel.tscn" id="5_7gemg"]
+[ext_resource type="PackedScene" uid="uid://mmmggcvvryc4" path="res://Splash/Splash.tscn" id="6_5enfs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x281n"]
 resource_local_to_scene = true
@@ -19,6 +20,7 @@ script = ExtResource("1_an6ew")
 shape = SubResource("RectangleShape2D_x281n")
 
 [node name="LevelHider" parent="." instance=ExtResource("2_bg0ma")]
+visible = false
 
 [node name="Muzak" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_kkixj")
@@ -154,10 +156,14 @@ layout_mode = 2
 horizontal_alignment = 1
 _format = "You grabbed {0} € worth of loot and got away!"
 
+[node name="Splash" parent="." instance=ExtResource("6_5enfs")]
+
 [connection signal="GameOver" from="Level1/Ferret" to="." method="OnGameOver"]
 [connection signal="body_entered" from="Level1/WinHere" to="." method="OnWinHere"]
+[connection signal="finished" from="Muzak" to="." method="OnMuzakFinished"]
 [connection signal="pressed" from="GameOverUI/Container/Button" to="." method="OnRetry"]
 [connection signal="pressed" from="HelpBox/CenterContainer/Panel/VBoxContainer/HBoxContainer/Button" to="." method="OnHuzzahButtonPressed"]
 [connection signal="pressed" from="GameWonUI/Container/Button" to="." method="OnRetry"]
+[connection signal="AnyKeyPressed" from="Splash" to="." method="OnAnyKeyPressed"]
 
 [editable path="Level1"]

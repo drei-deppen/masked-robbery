@@ -5,12 +5,6 @@ using MaskedRobbery;
 
 public partial class Game : Node
 {
-	public override void _Ready()
-	{
-		base._Ready();
-		_start();
-	}
-
 	private async void _start()
 	{
 		ScoreService.Reset();
@@ -60,5 +54,12 @@ public partial class Game : Node
 	public void OnMuzakFinished()
 	{
 		GetNode<AudioStreamPlayer>("Muzak").Play();
+	}
+
+	public async void OnAnyKeyPressed()
+	{
+		await GetNode<LevelHider>("LevelHider").FadeIn();
+		GetNode<Splash>("Splash").QueueFree();
+		_start();
 	}
 }
