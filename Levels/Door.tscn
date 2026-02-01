@@ -14,6 +14,7 @@ _sound = ExtResource("2_v7cuq")
 shape = SubResource("RectangleShape2D_ryqtx")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
+visible = false
 polygon = PackedVector2Array(-100, -150, 100, -150, 100, 150, -100, 150)
 
 [connection signal="body_entered" from="." to="." method="OnBodyEnters"]

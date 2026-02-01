@@ -69,7 +69,7 @@ size = Vector2(1058, 416.5)
 size = Vector2(891.25, 445.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wc7xg"]
-size = Vector2(835, 449)
+size = Vector2(835, 405)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_566q5"]
 size = Vector2(603, 433)
@@ -160,7 +160,7 @@ texture = ExtResource("14_u86hk")
 [node name="Office" parent="MidLevel" instance=ExtResource("7_o1qey")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MidLevel/Office"]
-position = Vector2(428.5, 105.5)
+position = Vector2(428.5, 127.5)
 shape = SubResource("RectangleShape2D_wc7xg")
 debug_color = Color(0.592157, 0, 0.27451, 0.419608)
 
