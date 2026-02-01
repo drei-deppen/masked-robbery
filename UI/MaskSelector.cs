@@ -7,12 +7,16 @@ public partial class MaskSelector : Panel
 	[Signal]
 	public delegate void MaskSelectedEventHandler(string maskName);
 	
+	[Signal]
+	public delegate void FlashedEventHandler();
+	
 	private bool _inCameraMode = false;
 
 	public void OnCharacterPhotographed(Character character)
 	{
 		if (!_inCameraMode) return;
 		GD.Print("*Click*");
+		EmitSignal(SignalName.Flashed);
 		_inCameraMode = false;
 		EnableMask(character.GetMaskName());
 	}

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c752jdl7i4wrc"]
+[gd_scene load_steps=19 format=3 uid="uid://c752jdl7i4wrc"]
 
 [ext_resource type="Script" path="res://Characters/Ferret/Ferret.cs" id="1_aofq6"]
 [ext_resource type="Texture2D" uid="uid://nkhlotn2wwa7" path="res://Characters/Ferret/Ferret Grab 1.png" id="2_0dj4m"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://dyb4pr2iw2vey" path="res://Characters/Ferret/Maske Governess.png" id="10_kj5n8"]
 [ext_resource type="AudioStream" uid="uid://woicqro66afo" path="res://Audio/Effects/footsteps ferrets.ogg" id="11_h331t"]
 [ext_resource type="PackedScene" uid="uid://i3qr7yojl8jm" path="res://Effects/Flashes/Flash.tscn" id="11_k5nou"]
+[ext_resource type="AudioStream" uid="uid://blsdpoy1ronqi" path="res://Audio/Effects/Polaroid.ogg" id="12_44l08"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jsdys"]
 animations = [{
@@ -81,15 +82,17 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wsrwm"]
 size = Vector2(300, 500)
 
-[node name="Ferret" type="CharacterBody2D"]
+[node name="Ferret" type="CharacterBody2D" node_paths=PackedStringArray("_Flash")]
 collision_mask = 5
 script = ExtResource("1_aofq6")
+_Flash = NodePath("Sprite/Flash")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_jsdys")
 animation = &"Idle"
 
 [node name="Flash" parent="Sprite" instance=ExtResource("11_k5nou")]
+_sound = ExtResource("12_44l08")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_wsrwm")

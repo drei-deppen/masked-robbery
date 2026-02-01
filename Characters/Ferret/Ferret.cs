@@ -3,6 +3,8 @@ using Godot;
 
 public partial class Ferret : CharacterBody2D
 {
+	[Export] private Flash _Flash;
+	
 	[Signal]
 	public delegate void GameOverEventHandler();
 	
@@ -41,6 +43,8 @@ public partial class Ferret : CharacterBody2D
 		_sprite = GetNode<AnimatedSprite2D>("Sprite");
 		_stepSounds = GetNode<AudioStreamPlayer2D>("StepSounds");
 	}
+	
+	public void OnFlashed() => _Flash.Flashing();
 
 	public void SetMask(string maskName)
 	{
