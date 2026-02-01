@@ -18,6 +18,7 @@ public partial class Game : Node
 
     public async void OnGameOver()
     {
+        GetNode<Level1>("Level1").Stop();
         await Task.Delay(1000);
         await GetNode<LevelHider>("LevelHider").FadeIn();
         GetNode<Level1>("Level1").QueueFree();

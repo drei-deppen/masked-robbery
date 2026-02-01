@@ -15,7 +15,7 @@ public partial class LevelHider : CanvasLayer
     
     public async Task FadeIn()
     {
-        Visible = false;
+        Visible = true;
         var rect = GetNode<ColorRect>("ColorRect");
         var tween = CreateTween();
         tween.SetProcessMode(Tween.TweenProcessMode.Physics);

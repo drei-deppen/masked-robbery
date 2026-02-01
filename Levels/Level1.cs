@@ -11,6 +11,13 @@ public partial class Level1 : Node
 		GetNode<Timer>("BoogieTimer").Start();
 		GD.Print("Level started");
 	}
+
+	public void Stop()
+	{
+		GetNode<CanvasLayer>("UI").Visible = false;
+		GetNode<Timer>("BoogieTimer").Stop();
+		GD.Print("Level stopped");
+	}
 	
 	public void OnMaskSelected(string maskName)
 	{

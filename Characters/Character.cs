@@ -43,19 +43,27 @@ public abstract partial class Character: CharacterBody2D
 		
 		var dice =  Rng.RandiRange(1, 6);
 		var canYap = null != CurrentRoom && !CurrentRoom.JustMe(this);
-		
-		if (canYap && dice < 3)
+
+		try
 		{
-			GD.Print(Name + " yaps");
-			Yap();
-		} else if (dice < 5)
-		{
-			GD.Print(Name + " walks away");
-			Walk(Rng.RandiRange(-500, 500));
+			if (canYap && dice < 3)
+			{
+				GD.Print(Name + " yaps");
+				Yap();
+			}
+			else if (dice < 5)
+			{
+				GD.Print(Name + " walks away");
+				Walk(Rng.RandiRange(-500, 500));
+			}
+			else
+			{
+				GD.Print(Name + " hangs around");
+			}
 		}
-		else
+		catch (System.ObjectDisposedException)
 		{
-			GD.Print(Name + " hangs around");
+			// pass
 		}
 	}
 
