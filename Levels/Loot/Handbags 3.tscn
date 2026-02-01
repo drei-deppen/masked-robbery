@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://c6f78opekjqcf"]
+[gd_scene load_steps=5 format=3 uid="uid://cwch0eyrbdweu"]
 
-[ext_resource type="PackedScene" uid="uid://cy51dj2rykoet" path="res://Levels/Loot.tscn" id="1_ksgfk"]
-[ext_resource type="AudioStream" uid="uid://bjhs8l70kh07i" path="res://Audio/Effects/chandelier.ogg" id="2_nlip5"]
+[ext_resource type="PackedScene" uid="uid://dtdu7bx0caeij" path="res://Levels/Loot.tscn" id="1_ksgfk"]
+[ext_resource type="AudioStream" uid="uid://b0uou1mjhno13" path="res://Audio/Effects/towel.ogg" id="2_2bsy5"]
 [ext_resource type="Texture2D" uid="uid://d1myk5wcqd1gd" path="res://Levels/Loot/Handbags 3.png" id="3_ema8j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_drhed"]
@@ -11,10 +11,10 @@ size = Vector2(151, 71)
 [node name="Handbags3" type="Node2D"]
 
 [node name="Loot" parent="." instance=ExtResource("1_ksgfk")]
-_value = 554
-_grabSound = ExtResource("2_nlip5")
+_value = 253
+_grabSound = ExtResource("2_2bsy5")
 
-[node name="Books2" type="Sprite2D" parent="Loot"]
+[node name="Bags" type="Sprite2D" parent="Loot"]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_ema8j")
 

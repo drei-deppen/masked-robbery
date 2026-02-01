@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://5f5s8f1rhl4w"]
+[gd_scene load_steps=5 format=3 uid="uid://bxi5s51h0u1a2"]
 
-[ext_resource type="PackedScene" uid="uid://cy51dj2rykoet" path="res://Levels/Loot.tscn" id="1_cbujs"]
-[ext_resource type="AudioStream" uid="uid://bjhs8l70kh07i" path="res://Audio/Effects/chandelier.ogg" id="2_e11g1"]
+[ext_resource type="PackedScene" uid="uid://dtdu7bx0caeij" path="res://Levels/Loot.tscn" id="1_cbujs"]
+[ext_resource type="AudioStream" uid="uid://vot2r3tkqoho" path="res://Audio/Effects/bush.mp3" id="2_ki42i"]
 [ext_resource type="Texture2D" uid="uid://4hssnjxxl8y7" path="res://Levels/Loot/Orange Tree 3.png" id="3_b7ddt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0odqg"]
@@ -11,10 +11,10 @@ size = Vector2(125, 287)
 [node name="OrangeTree3" type="Node2D"]
 
 [node name="Loot" parent="." instance=ExtResource("1_cbujs")]
-_value = 554
-_grabSound = ExtResource("2_e11g1")
+_value = 55
+_grabSound = ExtResource("2_ki42i")
 
-[node name="Books2" type="Sprite2D" parent="Loot"]
+[node name="Orange Tree" type="Sprite2D" parent="Loot"]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_b7ddt")
 
