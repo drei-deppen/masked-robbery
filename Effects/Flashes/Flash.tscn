@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://Effects/Flashes/Flash.cs" id="2_00eb5"]
 
 [node name="Flash" type="Sprite2D"]
+z_index = 4096
 scale = Vector2(0.174779, 0.174779)
 texture = ExtResource("1_equ8h")
 script = ExtResource("2_00eb5")
