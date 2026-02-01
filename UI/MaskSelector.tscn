@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cqpowkkwqi0n6"]
+[gd_scene load_steps=6 format=3 uid="uid://cqpowkkwqi0n6"]
 
 [ext_resource type="Script" path="res://UI/MaskSelector.cs" id="1_naeel"]
 [ext_resource type="Texture2D" uid="uid://bqr5rtp64spuu" path="res://UI/Sire.png" id="2_38dtu"]
+[ext_resource type="Texture2D" uid="uid://8ta1m2fx6e3k" path="res://UI/Camera.png" id="2_41q1x"]
 [ext_resource type="Texture2D" uid="uid://dthle5x8dprhs" path="res://UI/Dame.png" id="3_oegqy"]
 [ext_resource type="Texture2D" uid="uid://oxv441nwh1k" path="res://UI/Governess.png" id="4_o4guf"]
 
@@ -18,10 +19,11 @@ offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="CameraButton" type="Button" parent="Layout"]
+[node name="CameraButton" type="TextureButton" parent="Layout"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
-text = "Camera"
+texture_normal = ExtResource("2_41q1x")
+stretch_mode = 0
 
 [node name="VSeparator" type="VSeparator" parent="Layout"]
 layout_mode = 2
@@ -30,6 +32,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Ferret" type="Button" parent="Layout/Masks"]
+visible = false
 layout_mode = 2
 mouse_default_cursor_shape = 2
 text = "Ferret"
