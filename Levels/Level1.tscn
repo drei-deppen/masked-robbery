@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cp8vllkmh7ucr"]
+[gd_scene load_steps=19 format=3 uid="uid://cp8vllkmh7ucr"]
 
 [ext_resource type="PackedScene" uid="uid://cqpowkkwqi0n6" path="res://UI/MaskSelector.tscn" id="1_328ns"]
 [ext_resource type="Script" path="res://Levels/Level1.cs" id="1_nfr8y"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://csk6d450lrkl0" path="res://Characters/Governess/Governess.tscn" id="8_xc6cd"]
 [ext_resource type="PackedScene" uid="uid://ci2bwmmyaws3o" path="res://Characters/Dame/Dame.tscn" id="9_esgio"]
 [ext_resource type="PackedScene" uid="uid://2vmr3w010lpj" path="res://Characters/Baby/Baby.tscn" id="10_2j16d"]
+[ext_resource type="PackedScene" uid="uid://cy51dj2rykoet" path="res://Levels/Loot.tscn" id="11_5pqtt"]
+[ext_resource type="Texture2D" uid="uid://33qd3yklaih7" path="res://Levels/Loot/Picture 1.png" id="12_74igx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sbx46"]
 size = Vector2(738, 334)
@@ -25,6 +27,9 @@ size = Vector2(800, 310)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vsn2d"]
 size = Vector2(462.5, 321)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dc5w8"]
+size = Vector2(150, 220)
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_nfr8y")
@@ -138,6 +143,18 @@ position = Vector2(-795, 188)
 position = Vector2(1768.75, -24)
 shape = SubResource("RectangleShape2D_vsn2d")
 debug_color = Color(0.592157, 0, 0.27451, 0.419608)
+
+[node name="Loot" parent="." instance=ExtResource("11_5pqtt")]
+position = Vector2(296, 505)
+
+[node name="Sprite2D" type="Sprite2D" parent="Loot"]
+position = Vector2(2, -2)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("12_74igx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Loot"]
+shape = SubResource("RectangleShape2D_dc5w8")
+debug_color = Color(0.7, 0.641667, 0, 0.419608)
 
 [connection signal="MaskSelected" from="UI/MaskSelector" to="." method="OnMaskSelected"]
 [connection signal="Caught" from="Room" to="." method="OnCaught"]

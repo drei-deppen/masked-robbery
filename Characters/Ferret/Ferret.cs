@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Godot;
 
 public partial class Ferret : CharacterBody2D
@@ -20,6 +21,17 @@ public partial class Ferret : CharacterBody2D
 		SetMask("Ferret");
 		_sprite.FlipV = true;
 		EmitSignal(SignalName.GameOver);
+	}
+
+	public async Task Grab()
+	{
+		_sprite.Play("Grabbing");
+		await ToSignal(_sprite, "animation_finished");
+	}
+
+	public void Idle()
+	{
+		_sprite.Play("Idle");
 	}
 
 	public override void _Ready()

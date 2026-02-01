@@ -4,7 +4,7 @@ using MaskedRobbery;
 
 public partial class ScoreLabel : Label
 {
-    [Export] private string _format = "%d €";
+    [Export] private string _format = "{0} €";
 
     public override void _PhysicsProcess(double delta)
     {

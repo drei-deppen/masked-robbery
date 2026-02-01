@@ -1,8 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://c752jdl7i4wrc"]
+[gd_scene load_steps=17 format=3 uid="uid://c752jdl7i4wrc"]
 
 [ext_resource type="Script" path="res://Characters/Ferret/Ferret.cs" id="1_aofq6"]
+[ext_resource type="Texture2D" uid="uid://nkhlotn2wwa7" path="res://Characters/Ferret/Ferret Grab 1.png" id="2_0dj4m"]
 [ext_resource type="Texture2D" uid="uid://dldrjc27ovk1i" path="res://Characters/Ferret/Ferret Stand.png" id="2_q5jbc"]
+[ext_resource type="Texture2D" uid="uid://cphnqvec1pdh7" path="res://Characters/Ferret/Ferret Grab 2.png" id="3_sbcaq"]
 [ext_resource type="Texture2D" uid="uid://cf8ufna25bb7x" path="res://Characters/Ferret/Ferret Walk 1.png" id="3_tn2yd"]
+[ext_resource type="Texture2D" uid="uid://dlyfmkt74sp6m" path="res://Characters/Ferret/Ferret Grab 3.png" id="4_d0xbx"]
 [ext_resource type="Texture2D" uid="uid://bf4bws6ucinnl" path="res://Characters/Ferret/Ferret Walk 2.png" id="4_yh7gl"]
 [ext_resource type="Texture2D" uid="uid://bsvq8cy5n2a7t" path="res://Characters/Ferret/Ferret Walk 3.png" id="5_o8ug0"]
 [ext_resource type="Texture2D" uid="uid://b41tk6wqa1g4u" path="res://Characters/Ferret/Ferret Walk 4.png" id="6_o15il"]
@@ -14,6 +17,20 @@
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jsdys"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0dj4m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_sbcaq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_d0xbx")
+}],
+"loop": false,
+"name": &"Grabbing",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_q5jbc")

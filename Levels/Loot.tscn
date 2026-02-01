@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cy51dj2rykoet"]
+
+[ext_resource type="Script" path="res://Levels/Loot.cs" id="1_yapoo"]
+
+[node name="Loot" type="Area2D"]
+script = ExtResource("1_yapoo")
+
+[connection signal="body_entered" from="." to="." method="OnBodyEnters"]
+[connection signal="body_exited" from="." to="." method="OnBodyLeaves"]
