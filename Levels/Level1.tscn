@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://csk6d450lrkl0" path="res://Characters/Governess/Governess.tscn" id="8_xc6cd"]
 [ext_resource type="PackedScene" uid="uid://ci2bwmmyaws3o" path="res://Characters/Dame/Dame.tscn" id="9_esgio"]
 [ext_resource type="PackedScene" uid="uid://2vmr3w010lpj" path="res://Characters/Baby/Baby.tscn" id="10_2j16d"]
-[ext_resource type="PackedScene" uid="uid://cy51dj2rykoet" path="res://Levels/Loot.tscn" id="11_5pqtt"]
+[ext_resource type="PackedScene" path="res://Levels/Loot.tscn" id="11_5pqtt"]
 [ext_resource type="Texture2D" uid="uid://33qd3yklaih7" path="res://Levels/Loot/Picture 1.png" id="12_74igx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sbx46"]

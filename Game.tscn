@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Game.cs" id="1_an6ew"]
 [ext_resource type="PackedScene" uid="uid://bh0i4xw3g0i8h" path="res://UI/LevelHider.tscn" id="2_bg0ma"]
 [ext_resource type="AudioStream" uid="uid://da3ygmm4h2q6s" path="res://Audio/Music/spooky robber.ogg" id="4_kkixj"]
-[ext_resource type="PackedScene" uid="uid://kml061qurwt5" path="res://UI/ScoreLabel.tscn" id="5_7gemg"]
+[ext_resource type="PackedScene" path="res://UI/ScoreLabel.tscn" id="5_7gemg"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_an6ew")
