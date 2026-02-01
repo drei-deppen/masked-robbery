@@ -25,20 +25,13 @@ public partial class Loot : Area2D
             _ferret = null;
     }
 
-    private async void FreeLater()
-    {
-        await Task.Delay(250);
-        QueueFree();
-        ;
-    }
-
     private async void _take()
     {
         await _ferret.Grab();
         ScoreService.Add(_value);
         EmitSignal(SignalName.Taken);
-        FreeLater();
         _ferret.Idle();
+        QueueFree();
     }
 
     public override void _Input(InputEvent @event)

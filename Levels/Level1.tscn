@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cp8vllkmh7ucr"]
+[gd_scene load_steps=20 format=3 uid="uid://cp8vllkmh7ucr"]
 
 [ext_resource type="PackedScene" uid="uid://cqpowkkwqi0n6" path="res://UI/MaskSelector.tscn" id="1_328ns"]
 [ext_resource type="Script" path="res://Levels/Level1.cs" id="1_nfr8y"]
