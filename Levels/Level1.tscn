@@ -40,7 +40,7 @@
 [ext_resource type="PackedScene" uid="uid://bcsc62kjygg0e" path="res://Levels/Loot/Telly 2.tscn" id="30_scscf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q7ceg"]
-size = Vector2(1273, 443)
+size = Vector2(1058, 443)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vsn2d"]
 size = Vector2(891.25, 445.5)
@@ -109,7 +109,7 @@ position = Vector2(2142, 495)
 [node name="Foyer" parent="GroundLevel" instance=ExtResource("7_o1qey")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GroundLevel/Foyer"]
-position = Vector2(846.5, 549)
+position = Vector2(954, 549)
 shape = SubResource("RectangleShape2D_q7ceg")
 debug_color = Color(0.592157, 0, 0.27451, 0.419608)
 
