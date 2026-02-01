@@ -56,4 +56,9 @@ public partial class Game : Node
 		await _stopGame();
 		GetNode<CanvasLayer>("GameWonUI").Show();
 	}
+
+	public void OnMuzakFinished()
+	{
+		GetNode<AudioStreamPlayer>("Muzak").Play();
+	}
 }
