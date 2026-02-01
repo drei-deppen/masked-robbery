@@ -4,6 +4,13 @@ using MaskedRobbery.Characters;
 public partial class Level1 : Node
 {
 	private RandomNumberGenerator _rng = new();
+
+	public void Start()
+	{
+		GetNode<CanvasLayer>("UI").Visible = true;
+		GetNode<Timer>("BoogieTimer").Start();
+		GD.Print("Level started");
+	}
 	
 	public void OnMaskSelected(string maskName)
 	{

@@ -1,37 +1,25 @@
+using System.Threading.Tasks;
 using Godot;
-using System;
 
-public partial class LevelHider : ColorRect
+public partial class LevelHider : CanvasLayer
 {
-	float alpha = 1.2f;
-	bool reset = false;
-	
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
-	{
-
-	}
-	
-	
-	// Called when the node enters the scene tree for the first time.
-	public override void _Process(double delta)
-	{
-		this.SetColor(new Color(1, 1, 1, alpha));
-		if (!reset)
-		{
-			if(alpha>0f)
-			alpha -= (float)delta;
-		}
-		else
-			{
-				alpha += (float)delta;
-				if(alpha>1.2f)
-					GetTree().ReloadCurrentScene();
-			}
-	}
-
-	public void Reset()
-	{
-		reset = true;
-	}
+    public async Task FadeOut()
+    {
+        var rect = GetNode<ColorRect>("ColorRect");
+        var tween = CreateTween();
+        tween.SetProcessMode(Tween.TweenProcessMode.Physics);
+        tween.TweenProperty(rect, "modulate:a", 0f, 2.0);
+        await ToSignal(tween, "finished");
+        Visible = false;
+    }
+    
+    public async Task FadeIn()
+    {
+        Visible = false;
+        var rect = GetNode<ColorRect>("ColorRect");
+        var tween = CreateTween();
+        tween.SetProcessMode(Tween.TweenProcessMode.Physics);
+        tween.TweenProperty(rect, "modulate:a", 1f, 2.0);
+        await ToSignal(tween, "finished");
+    }
 }

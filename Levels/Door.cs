@@ -55,9 +55,7 @@ public partial class Door : Area2D
         tween.SetEase(Tween.EaseType.InOut);
         tween.SetProcessMode(Tween.TweenProcessMode.Physics);
         tween.TweenProperty(camera, "global_position", _target.GetGlobalPosition(), _transferTime / 1000.0);
-        var promise = new TaskCompletionSource();
-        tween.TweenCallback(Callable.From(() => promise.TrySetResult()));
-        await promise.Task;
+        await ToSignal(tween, "finished");
         
         // TODO Play Target animation
         

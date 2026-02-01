@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://ccjx82lfv08dn"]
+
+[ext_resource type="PackedScene" uid="uid://cp8vllkmh7ucr" path="res://Levels/Level1.tscn" id="1_6t5cy"]
+[ext_resource type="Script" path="res://Game.cs" id="1_an6ew"]
+[ext_resource type="PackedScene" uid="uid://bh0i4xw3g0i8h" path="res://UI/LevelHider.tscn" id="2_bg0ma"]
+[ext_resource type="AudioStream" uid="uid://da3ygmm4h2q6s" path="res://Audio/Music/spooky robber.ogg" id="4_kkixj"]
+
+[node name="Game" type="Node"]
+script = ExtResource("1_an6ew")
+
+[node name="Level1" parent="." instance=ExtResource("1_6t5cy")]
+
+[node name="LevelHider" parent="." instance=ExtResource("2_bg0ma")]
+
+[node name="Muzak" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_kkixj")
+autoplay = true
+
+[connection signal="GameOver" from="Level1/Ferret" to="." method="OnGameOver"]
+
+[editable path="Level1"]

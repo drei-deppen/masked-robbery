@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c752jdl7i4wrc"]
+[gd_scene load_steps=13 format=3 uid="uid://c752jdl7i4wrc"]
 
 [ext_resource type="Script" path="res://Characters/Ferret/Ferret.cs" id="1_aofq6"]
 [ext_resource type="Texture2D" uid="uid://dldrjc27ovk1i" path="res://Characters/Ferret/Ferret Stand.png" id="2_q5jbc"]
@@ -10,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://c7nxc284j3g8b" path="res://Characters/Ferret/Maske Sire.png" id="8_o3kj0"]
 [ext_resource type="Texture2D" uid="uid://bnegw5m0o5yut" path="res://Characters/Ferret/Maske Dame.png" id="9_svlje"]
 [ext_resource type="Texture2D" uid="uid://dyb4pr2iw2vey" path="res://Characters/Ferret/Maske Governess.png" id="10_kj5n8"]
-[ext_resource type="AudioStream" uid="uid://drnkw4on7mr6d" path="res://Audio/Music/spooky robber.wav" id="11_wrtj3"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jsdys"]
 animations = [{
@@ -109,9 +108,5 @@ position = Vector2(59, -167)
 position = Vector2(120, -148)
 
 [node name="AudioListener2D" type="AudioListener2D" parent="."]
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("11_wrtj3")
-autoplay = true
 
 [connection signal="timeout" from="BlinkTimer" to="." method="OnBlinkTimer"]
