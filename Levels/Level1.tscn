@@ -284,6 +284,7 @@ position = Vector2(876, 110)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("19_j625f")
 
+[connection signal="Flashed" from="UI/MaskSelector" to="Ferret" method="OnFlashed"]
 [connection signal="Caught" from="GroundLevel/Foyer" to="." method="OnCaught"]
 [connection signal="Caught" from="GroundLevel/Kitchen" to="." method="OnCaught"]
 [connection signal="Caught" from="MidLevel/Office" to="." method="OnCaught"]

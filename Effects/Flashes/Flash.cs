@@ -16,8 +16,6 @@ public partial class Flash : Sprite2D
 		flashSound = new AudioStreamPlayer2D();
 		AddChild(flashSound);
 		flashSound.Stream = _sound;
-		
-		Flashing();
 	}
 	
 	public async Task Flashing()
@@ -28,9 +26,10 @@ public partial class Flash : Sprite2D
 		mod.A = 1;
 		Modulate = mod;
 		var tween = CreateTween();
+		tween.SetParallel();
 		tween.SetProcessMode(Tween.TweenProcessMode.Physics);
-		tween.TweenProperty(this, "modulate:a", 1f, 0);
-		tween.TweenProperty(this, "scale", 0, 4);
+		tween.TweenProperty(this, "modulate:a", 0, 1);
+		tween.TweenProperty(this, "scale", new Vector2(5,5), 2);
 		await ToSignal(tween, "finished");
 	}
 }
