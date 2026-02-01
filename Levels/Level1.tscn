@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cp8vllkmh7ucr"]
+[gd_scene load_steps=25 format=3 uid="uid://cp8vllkmh7ucr"]
 
 [ext_resource type="PackedScene" uid="uid://cqpowkkwqi0n6" path="res://UI/MaskSelector.tscn" id="1_328ns"]
 [ext_resource type="Script" path="res://Levels/Level1.cs" id="1_nfr8y"]
@@ -11,16 +11,16 @@
 [ext_resource type="PackedScene" uid="uid://csk6d450lrkl0" path="res://Characters/Governess/Governess.tscn" id="8_xc6cd"]
 [ext_resource type="PackedScene" uid="uid://ci2bwmmyaws3o" path="res://Characters/Dame/Dame.tscn" id="9_esgio"]
 [ext_resource type="PackedScene" uid="uid://2vmr3w010lpj" path="res://Characters/Baby/Baby.tscn" id="10_2j16d"]
-[ext_resource type="PackedScene" path="res://Levels/Loot/Picture 1.tscn" id="12_e7sap"]
-[ext_resource type="PackedScene" path="res://Levels/Loot/Picture 1b.tscn" id="12_jeo2o"]
-[ext_resource type="PackedScene" path="res://Levels/Loot/Bottle 1.tscn" id="13_mdbb3"]
-[ext_resource type="PackedScene" path="res://Levels/Loot/Palm Tree 1.tscn" id="13_w1tq3"]
-[ext_resource type="PackedScene" path="res://Levels/Loot/Vase 1a.tscn" id="14_hk4ga"]
-[ext_resource type="PackedScene" path="res://Levels/Loot/Vase 1b.tscn" id="15_lqj8j"]
-[ext_resource type="PackedScene" path="res://Levels/Loot/Photo 1.tscn" id="16_3l33f"]
+[ext_resource type="PackedScene" uid="uid://dt8df0uxmglkc" path="res://Levels/Loot/Picture 1.tscn" id="12_e7sap"]
+[ext_resource type="PackedScene" uid="uid://bhj0mqto0wpu4" path="res://Levels/Loot/Picture 1b.tscn" id="12_jeo2o"]
+[ext_resource type="PackedScene" uid="uid://cg2vuxsgjk8ol" path="res://Levels/Loot/Bottle 1.tscn" id="13_mdbb3"]
+[ext_resource type="PackedScene" uid="uid://hitvtavswqst" path="res://Levels/Loot/Palm Tree 1.tscn" id="13_w1tq3"]
+[ext_resource type="PackedScene" uid="uid://drhcn7jvu87gu" path="res://Levels/Loot/Vase 1a.tscn" id="14_hk4ga"]
+[ext_resource type="PackedScene" uid="uid://bbnwu1p4airp3" path="res://Levels/Loot/Vase 1b.tscn" id="15_lqj8j"]
+[ext_resource type="PackedScene" uid="uid://dwyavd24q4b8x" path="res://Levels/Loot/Photo 1.tscn" id="16_3l33f"]
 [ext_resource type="Texture2D" uid="uid://dasb3qn0elu56" path="res://Levels/Loot/Wall 1.png" id="19_j625f"]
-[ext_resource type="PackedScene" path="res://Levels/Loot/Fruit 1.tscn" id="20_bjkb4"]
-[ext_resource type="PackedScene" path="res://Levels/Loot/Calendar 1.tscn" id="21_l83na"]
+[ext_resource type="PackedScene" uid="uid://h6458lnrcpry" path="res://Levels/Loot/Fruit 1.tscn" id="20_bjkb4"]
+[ext_resource type="PackedScene" uid="uid://s0t6af463p6e" path="res://Levels/Loot/Calendar 1.tscn" id="21_l83na"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q7ceg"]
 size = Vector2(1273, 443)
@@ -31,20 +31,74 @@ size = Vector2(891.25, 445.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iyyiq"]
 size = Vector2(14.75, 902.5)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vvu5s"]
-size = Vector2(2348, 20)
-
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_nfr8y")
 
-[node name="Room1" type="Sprite2D" parent="."]
+[node name="Door" parent="." node_paths=PackedStringArray("_target") instance=ExtResource("6_ogrn0")]
+position = Vector2(7, 137)
+_target = NodePath("../Door2")
+_sound = null
+
+[node name="Door2" parent="." node_paths=PackedStringArray("_target") instance=ExtResource("6_ogrn0")]
+position = Vector2(2298, 624)
+_target = NodePath("../Door")
+_sound = null
+
+[node name="GroundLevel" type="Node2D" parent="."]
+
+[node name="Backdrop" type="Sprite2D" parent="GroundLevel"]
 position = Vector2(1196, 556)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("7_0sk4m")
 
+[node name="Loot" type="Node" parent="GroundLevel"]
+
+[node name="Picture1" parent="GroundLevel/Loot" instance=ExtResource("12_e7sap")]
+position = Vector2(1099, 500)
+
+[node name="Bottle1" parent="GroundLevel/Loot" instance=ExtResource("13_mdbb3")]
+position = Vector2(1951, 575)
+
+[node name="Vase1a" parent="GroundLevel/Loot" instance=ExtResource("14_hk4ga")]
+position = Vector2(484, 565)
+
+[node name="Vase1b" parent="GroundLevel/Loot" instance=ExtResource("15_lqj8j")]
+position = Vector2(623, 547)
+
+[node name="Photo1" parent="GroundLevel/Loot" instance=ExtResource("16_3l33f")]
+position = Vector2(555, 567)
+
+[node name="Picture1b" parent="GroundLevel/Loot" instance=ExtResource("12_jeo2o")]
+position = Vector2(548, 437)
+
+[node name="PalmTree1" parent="GroundLevel/Loot" instance=ExtResource("13_w1tq3")]
+position = Vector2(980, 557)
+
+[node name="Fruit1" parent="GroundLevel/Loot" instance=ExtResource("20_bjkb4")]
+position = Vector2(1905, 574)
+
+[node name="Calendar1" parent="GroundLevel/Loot" instance=ExtResource("21_l83na")]
+position = Vector2(2142, 495)
+
+[node name="Room 1" parent="GroundLevel" instance=ExtResource("7_o1qey")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroundLevel/Room 1"]
+position = Vector2(846.5, 549)
+shape = SubResource("RectangleShape2D_q7ceg")
+debug_color = Color(0.592157, 0, 0.27451, 0.419608)
+
+[node name="Room 2" parent="GroundLevel" instance=ExtResource("7_o1qey")]
+position = Vector2(-795, 188)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroundLevel/Room 2"]
+position = Vector2(2721, 369)
+shape = SubResource("RectangleShape2D_vsn2d")
+debug_color = Color(0.592157, 0, 0.27451, 0.419608)
+
 [node name="Camera" parent="." node_paths=PackedStringArray("_focus") instance=ExtResource("4_l3axb")]
-limit_left = -1500
+limit_left = 10
 limit_right = 2500
+limit_bottom = 782
 _focus = NodePath("../Ferret")
 
 [node name="Ferret" parent="." instance=ExtResource("2_mq57p")]
@@ -63,37 +117,6 @@ anchor_bottom = 1.0
 offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 0
-
-[node name="Door" parent="." node_paths=PackedStringArray("_target") instance=ExtResource("6_ogrn0")]
-position = Vector2(7, 137)
-_target = NodePath("../Door2")
-
-[node name="Door2" parent="." node_paths=PackedStringArray("_target") instance=ExtResource("6_ogrn0")]
-position = Vector2(2298, 624)
-_target = NodePath("../Door")
-
-[node name="Loot" type="Node" parent="."]
-
-[node name="Picture1" parent="Loot" instance=ExtResource("12_e7sap")]
-position = Vector2(1099, 500)
-
-[node name="Bottle1" parent="Loot" instance=ExtResource("13_mdbb3")]
-position = Vector2(1951, 575)
-
-[node name="Vase1a" parent="Loot" instance=ExtResource("14_hk4ga")]
-position = Vector2(484, 565)
-
-[node name="Vase1b" parent="Loot" instance=ExtResource("15_lqj8j")]
-position = Vector2(623, 547)
-
-[node name="Photo1" parent="Loot" instance=ExtResource("16_3l33f")]
-position = Vector2(555, 567)
-
-[node name="Picture1b" parent="Loot" instance=ExtResource("12_jeo2o")]
-position = Vector2(548, 437)
-
-[node name="PalmTree1" parent="Loot" instance=ExtResource("13_w1tq3")]
-position = Vector2(980, 557)
 
 [node name="Boogies" type="Node" parent="."]
 
@@ -115,21 +138,6 @@ scale = Vector2(0.5, 0.5)
 
 [node name="BoogieTimer" type="Timer" parent="."]
 wait_time = 0.3
-
-[node name="Room2" parent="." instance=ExtResource("7_o1qey")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Room2"]
-position = Vector2(846.5, 549)
-shape = SubResource("RectangleShape2D_q7ceg")
-debug_color = Color(0.592157, 0, 0.27451, 0.419608)
-
-[node name="Room3" parent="." instance=ExtResource("7_o1qey")]
-position = Vector2(-795, 188)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Room3"]
-position = Vector2(2721, 369)
-shape = SubResource("RectangleShape2D_vsn2d")
-debug_color = Color(0.592157, 0, 0.27451, 0.419608)
 
 [node name="Barriers" type="Node" parent="."]
 
@@ -153,43 +161,18 @@ position = Vector2(26, 12)
 shape = SubResource("RectangleShape2D_iyyiq")
 debug_color = Color(0, 0.6, 0.0588235, 0.419608)
 
-[node name="StaticBody2D3" type="StaticBody2D" parent="Barriers"]
-position = Vector2(590, 0)
-collision_layer = 4
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Barriers/StaticBody2D3"]
-position = Vector2(587, -149)
-shape = SubResource("RectangleShape2D_vvu5s")
-debug_color = Color(0, 0.6, 0.0588235, 0.419608)
-
-[node name="StaticBody2D4" type="StaticBody2D" parent="Barriers"]
-position = Vector2(590, 670)
-collision_layer = 4
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Barriers/StaticBody2D4"]
-position = Vector2(606, 110)
-shape = SubResource("RectangleShape2D_vvu5s")
-debug_color = Color(0, 0.6, 0.0588235, 0.419608)
-
 [node name="Wall1" type="Sprite2D" parent="."]
+z_index = 500
+z_as_relative = false
 position = Vector2(1473, 556)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("19_j625f")
 
-[node name="Fruit1" parent="." instance=ExtResource("20_bjkb4")]
-position = Vector2(1905, 574)
-
-[node name="Calendar1" parent="." instance=ExtResource("21_l83na")]
-position = Vector2(2142, 495)
-
-[connection signal="Flashed" from="UI/MaskSelector" to="Ferret" method="OnFlashed"]
+[connection signal="Caught" from="GroundLevel/Room 1" to="." method="OnCaught"]
+[connection signal="Caught" from="GroundLevel/Room 2" to="." method="OnCaught"]
 [connection signal="MaskSelected" from="UI/MaskSelector" to="." method="OnMaskSelected"]
 [connection signal="Clicked" from="Boogies/Frederick" to="UI/MaskSelector" method="OnCharacterPhotographed"]
 [connection signal="Clicked" from="Boogies/Governess" to="UI/MaskSelector" method="OnCharacterPhotographed"]
 [connection signal="Clicked" from="Boogies/Dame" to="UI/MaskSelector" method="OnCharacterPhotographed"]
 [connection signal="Clicked" from="Boogies/Baby" to="UI/MaskSelector" method="OnCharacterPhotographed"]
 [connection signal="timeout" from="BoogieTimer" to="." method="OnBoogieTimer"]
-[connection signal="Caught" from="Room2" to="." method="OnCaught"]
-[connection signal="Caught" from="Room3" to="." method="OnCaught"]

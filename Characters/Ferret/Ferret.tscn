@@ -80,7 +80,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wsrwm"]
-size = Vector2(300, 500)
+size = Vector2(300, 736)
 
 [node name="Ferret" type="CharacterBody2D" node_paths=PackedStringArray("_Flash")]
 collision_mask = 5
@@ -95,6 +95,7 @@ animation = &"Idle"
 _sound = ExtResource("12_44l08")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -118)
 shape = SubResource("RectangleShape2D_wsrwm")
 
 [node name="BlinkTimer" type="Timer" parent="."]
