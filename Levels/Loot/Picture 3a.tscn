@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://buc7j8splrdhs"]
+[gd_scene load_steps=5 format=3 uid="uid://b8lr2dbyqe24b"]
 
-[ext_resource type="PackedScene" uid="uid://cy51dj2rykoet" path="res://Levels/Loot.tscn" id="1_xkxld"]
-[ext_resource type="AudioStream" uid="uid://bjhs8l70kh07i" path="res://Audio/Effects/chandelier.ogg" id="2_q24mh"]
+[ext_resource type="PackedScene" uid="uid://dtdu7bx0caeij" path="res://Levels/Loot.tscn" id="1_xkxld"]
+[ext_resource type="AudioStream" uid="uid://byindmuqt8gtu" path="res://Audio/Effects/tok.ogg" id="2_cxbss"]
 [ext_resource type="Texture2D" uid="uid://cjffe4wciwybk" path="res://Levels/Loot/Picture 3a.png" id="3_s5ype"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wy1bc"]
@@ -11,10 +11,10 @@ size = Vector2(316, 144)
 [node name="Picture3a" type="Node2D"]
 
 [node name="Loot" parent="." instance=ExtResource("1_xkxld")]
-_value = 554
-_grabSound = ExtResource("2_q24mh")
+_value = 786
+_grabSound = ExtResource("2_cxbss")
 
-[node name="Books2" type="Sprite2D" parent="Loot"]
+[node name="Picture" type="Sprite2D" parent="Loot"]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_s5ype")
 

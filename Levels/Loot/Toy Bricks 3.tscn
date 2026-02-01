@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cm2cehgwqx5sm"]
+[gd_scene load_steps=5 format=3 uid="uid://cdcni3gs6wobj"]
 
-[ext_resource type="PackedScene" uid="uid://cy51dj2rykoet" path="res://Levels/Loot.tscn" id="1_ip351"]
-[ext_resource type="AudioStream" uid="uid://bjhs8l70kh07i" path="res://Audio/Effects/chandelier.ogg" id="2_02lhx"]
+[ext_resource type="PackedScene" uid="uid://dtdu7bx0caeij" path="res://Levels/Loot.tscn" id="1_ip351"]
+[ext_resource type="AudioStream" uid="uid://em3nabj5dygm" path="res://Audio/Effects/brick.mp3" id="2_k5xvr"]
 [ext_resource type="Texture2D" uid="uid://hxfv368ahcd8" path="res://Levels/Loot/Toy Bricks 3.png" id="3_ummmu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qmp4n"]
@@ -11,10 +11,10 @@ size = Vector2(110, 64)
 [node name="ToyBricks3" type="Node2D"]
 
 [node name="Loot" parent="." instance=ExtResource("1_ip351")]
-_value = 554
-_grabSound = ExtResource("2_02lhx")
+_value = 14
+_grabSound = ExtResource("2_k5xvr")
 
-[node name="Books2" type="Sprite2D" parent="Loot"]
+[node name="Bricks" type="Sprite2D" parent="Loot"]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_ummmu")
 
