@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://cp8vllkmh7ucr"]
+[gd_scene load_steps=73 format=3 uid="uid://cp8vllkmh7ucr"]
 
 [ext_resource type="PackedScene" uid="uid://cqpowkkwqi0n6" path="res://UI/MaskSelector.tscn" id="1_328ns"]
 [ext_resource type="Script" path="res://Levels/Level1.cs" id="1_nfr8y"]
@@ -86,8 +86,15 @@ size = Vector2(436, 456)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_my87l"]
 size = Vector2(619, 444)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_52i2g"]
+size = Vector2(64, 1346)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iyyiq"]
-size = Vector2(73, 1324)
+resource_local_to_scene = true
+size = Vector2(73, 869)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uxbc0"]
+size = Vector2(261, 399)
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_nfr8y")
@@ -372,8 +379,8 @@ collision_layer = 4
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Barriers/StaticBody2D"]
-position = Vector2(1191.5, -202)
-shape = SubResource("RectangleShape2D_iyyiq")
+position = Vector2(1182, -210)
+shape = SubResource("RectangleShape2D_52i2g")
 debug_color = Color(0, 0.6, 0.0588235, 0.419608)
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="Barriers"]
@@ -382,7 +389,7 @@ collision_layer = 4
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Barriers/StaticBody2D2"]
-position = Vector2(31, -187)
+position = Vector2(31, -414.5)
 shape = SubResource("RectangleShape2D_iyyiq")
 debug_color = Color(0, 0.6, 0.0588235, 0.419608)
 
@@ -438,6 +445,13 @@ _target = NodePath("../Door4")
 position = Vector2(53.7, -240)
 scale = Vector2(0.4, 0.7)
 _target = NodePath("../Door3")
+
+[node name="WinHere" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WinHere"]
+position = Vector2(-173, 565)
+shape = SubResource("RectangleShape2D_uxbc0")
+debug_color = Color(0.595, 0, 0.7, 0.419608)
 
 [connection signal="Caught" from="GroundLevel/Foyer" to="." method="OnCaught"]
 [connection signal="Caught" from="GroundLevel/Kitchen" to="." method="OnCaught"]

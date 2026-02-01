@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://ccjx82lfv08dn"]
+[gd_scene load_steps=7 format=3 uid="uid://ccjx82lfv08dn"]
 
 [ext_resource type="PackedScene" uid="uid://cp8vllkmh7ucr" path="res://Levels/Level1.tscn" id="1_6t5cy"]
 [ext_resource type="Script" path="res://Game.cs" id="1_an6ew"]
@@ -6,10 +6,17 @@
 [ext_resource type="AudioStream" uid="uid://da3ygmm4h2q6s" path="res://Audio/Music/spooky robber.ogg" id="4_kkixj"]
 [ext_resource type="PackedScene" uid="uid://kml061qurwt5" path="res://UI/ScoreLabel.tscn" id="5_7gemg"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x281n"]
+resource_local_to_scene = true
+size = Vector2(73, 869)
+
 [node name="Game" type="Node"]
 script = ExtResource("1_an6ew")
 
 [node name="Level1" parent="." instance=ExtResource("1_6t5cy")]
+
+[node name="CollisionShape2D" parent="Level1/Barriers/StaticBody2D2" index="0"]
+shape = SubResource("RectangleShape2D_x281n")
 
 [node name="LevelHider" parent="." instance=ExtResource("2_bg0ma")]
 
@@ -104,8 +111,53 @@ alignment = 2
 layout_mode = 2
 text = "Huzzah!"
 
+[node name="GameWonUI" type="CanvasLayer" parent="."]
+layer = 51
+visible = false
+
+[node name="Container" type="MarginContainer" parent="GameWonUI"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -150.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_right = 150
+theme_override_constants/margin_bottom = 50
+
+[node name="Button" type="Button" parent="GameWonUI/Container"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Retry"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameWonUI"]
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="GameWonUI/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="Label" type="Label" parent="GameWonUI/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Huzzah!"
+horizontal_alignment = 1
+
+[node name="ScoreLabel" parent="GameWonUI/VBoxContainer" instance=ExtResource("5_7gemg")]
+layout_mode = 2
+horizontal_alignment = 1
+_format = "You grabbed {0} € worth of loot and got away!"
+
 [connection signal="GameOver" from="Level1/Ferret" to="." method="OnGameOver"]
+[connection signal="body_entered" from="Level1/WinHere" to="." method="OnWinHere"]
 [connection signal="pressed" from="GameOverUI/Container/Button" to="." method="OnRetry"]
 [connection signal="pressed" from="HelpBox/CenterContainer/Panel/VBoxContainer/HBoxContainer/Button" to="." method="OnHuzzahButtonPressed"]
+[connection signal="pressed" from="GameWonUI/Container/Button" to="." method="OnRetry"]
 
 [editable path="Level1"]
