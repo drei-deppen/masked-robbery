@@ -9,7 +9,9 @@ public partial class Flash : Sprite2D
 		
 	public override void _Ready()
 	{
-		Modulate.A = 0;
+		var mod = Modulate;
+		mod.A = 0;
+		Modulate = mod;
 		base._Ready();
 		flashSound = new AudioStreamPlayer2D();
 		AddChild(flashSound);
@@ -21,9 +23,11 @@ public partial class Flash : Sprite2D
 	public async Task Flashing()
 	{
 		flashSound.Playing = true;
-		Scale.x = 0;
-		Scale.y = 0;
-		Modulate.a = 1;
+		Scale = Vector2.Zero;
+		var mod = Modulate;
+		mod.A = 1;
+		Modulate = mod;
+		var tween = CreateTween();
 		tween.SetProcessMode(Tween.TweenProcessMode.Physics);
 		tween.TweenProperty(this, "modulate:a", 1f, 0);
 		tween.TweenProperty(this, "scale", 0, 4);
