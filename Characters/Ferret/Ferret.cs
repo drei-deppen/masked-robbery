@@ -2,104 +2,108 @@ using Godot;
 
 public partial class Ferret : CharacterBody2D
 {
-    [Signal]
-    public delegate void GameOverEventHandler();
-    
-    private Vector2 _direction = Vector2.Zero;
-    private float _speed = 5f;
-    private RandomNumberGenerator _rng = new();
-    private bool _caught = false;
+	[Signal]
+	public delegate void GameOverEventHandler();
+	
+	private Vector2 _direction = Vector2.Zero;
+	private float _speed = 5f;
+	private RandomNumberGenerator _rng = new();
+	private bool _caught = false;
 
-    private Node2D _masks;
-    private AnimatedSprite2D _sprite;
+	private Node2D _masks;
+	private AnimatedSprite2D _sprite;
+	private AudioStreamPlayer2D _stepSounds;
 
-    public void Caught()
-    {
-        _caught = true;
-        SetMask("Ferret");
-        _sprite.FlipV = true;
-        EmitSignal(SignalName.GameOver);
-    }
+	public void Caught()
+	{
+		_caught = true;
+		SetMask("Ferret");
+		_sprite.FlipV = true;
+		EmitSignal(SignalName.GameOver);
+	}
 
-    public override void _Ready()
-    {
-        base._Ready();
-        _masks = GetNode<Node2D>("Masks");
-        _sprite = GetNode<AnimatedSprite2D>("Sprite");
-    }
+	public override void _Ready()
+	{
+		base._Ready();
+		_masks = GetNode<Node2D>("Masks");
+		_sprite = GetNode<AnimatedSprite2D>("Sprite");
+		_stepSounds = GetNode<AudioStreamPlayer2D>("StepSounds");
+	}
 
-    public void SetMask(string maskName)
-    {
-        if (_caught) return;
-        GD.Print(Name + " tries to mask as " + maskName);
-        var masks = _masks.FindChildren("*");
-        foreach (var mask in masks)
-            if (mask is Node2D mask2d)
-            {
-                mask2d.Visible = mask2d.Name == maskName;
-                if (mask2d.Visible) GD.Print(Name + " now masks as " + maskName);
-            }
-    }
+	public void SetMask(string maskName)
+	{
+		if (_caught) return;
+		GD.Print(Name + " tries to mask as " + maskName);
+		var masks = _masks.FindChildren("*");
+		foreach (var mask in masks)
+			if (mask is Node2D mask2d)
+			{
+				mask2d.Visible = mask2d.Name == maskName;
+				if (mask2d.Visible) GD.Print(Name + " now masks as " + maskName);
+			}
+	}
 
-    public bool IsMasked(string maskName = null)
-    {
-        var masks = _masks.FindChildren("*");
-        foreach (var mask in masks)
-        {
-            if (mask is not Node2D mask2d || !mask2d.IsVisible()) continue;
-            if (null == maskName) return true;
-            if (mask2d.Name == maskName) return true;
-        }
+	public bool IsMasked(string maskName = null)
+	{
+		var masks = _masks.FindChildren("*");
+		foreach (var mask in masks)
+		{
+			if (mask is not Node2D mask2d || !mask2d.IsVisible()) continue;
+			if (null == maskName) return true;
+			if (mask2d.Name == maskName) return true;
+		}
 
-        return false;
-    }
+		return false;
+	}
 
-    /// <summary>
-    /// This method is used for Moving the Fettet.
-    /// </summary>
-    /// <param name="event"></param>
-    /// <returns></returns>
-    public override void _Input(InputEvent @event)
-    {
-        // If cuaght there will be a different set of controls.
-        if (_caught) return;
+	/// <summary>
+	/// This method is used for Moving the Fettet.
+	/// </summary>
+	/// <param name="event"></param>
+	/// <returns></returns>
+	public override void _Input(InputEvent @event)
+	{
+		// If cuaght there will be a different set of controls.
+		if (_caught) return;
 
-        // Default Controls
-        if (@event.IsActionPressed("Left"))
-            _walk(Vector2.Left);
-        else if (@event.IsActionPressed("Right"))
-            _walk(Vector2.Right);
-        else if (@event.IsActionReleased("Right") || @event.IsActionReleased("Left"))
-        {
-            _masks.Position = GetNode<Node2D>("MaskIdle" + (_sprite.FlipH ? "Right" : "Left")).Position;
-            _direction = Vector2.Zero;
-            _sprite.Play("Idle");
-        }
-    }
+		// Default Controls
+		if (@event.IsActionPressed("Left"))
+			_walk(Vector2.Left);
+		else if (@event.IsActionPressed("Right"))
+			_walk(Vector2.Right);
+		else if (@event.IsActionReleased("Right") || @event.IsActionReleased("Left"))
+		{
+			_masks.Position = GetNode<Node2D>("MaskIdle" + (_sprite.FlipH ? "Right" : "Left")).Position;
+			_direction = Vector2.Zero;
+			_stepSounds.Playing = false;
+			_sprite.Play("Idle");
+		}
+	}
 
-    private void _walk(Vector2 direction)
-    {
-        _direction = direction;
-        _sprite.FlipH = Vector2.Right == direction;
-        foreach (var mask in _masks.FindChildren("*"))
-            if (mask is Sprite2D mask2d)
-                mask2d.FlipH = _sprite.FlipH;
-        _masks.Position = GetNode<Node2D>("MaskWalking" + (_sprite.FlipH ? "Right" : "Left")).Position;
-        _sprite.Play("Walking");
-    }
+	private void _walk(Vector2 direction)
+	{
+		_direction = direction;
+		_sprite.FlipH = Vector2.Right == direction;
+		foreach (var mask in _masks.FindChildren("*"))
+			if (mask is Sprite2D mask2d)
+				mask2d.FlipH = _sprite.FlipH;
+		_masks.Position = GetNode<Node2D>("MaskWalking" + (_sprite.FlipH ? "Right" : "Left")).Position;
+		_stepSounds.Playing = true;
+		_sprite.Play("Walking");
+	}
 
-    public override void _PhysicsProcess(double delta)
-    {
-        if (!_caught)
-            MoveAndCollide(_direction * _speed);
-        base._PhysicsProcess(delta);
-    }
+	public override void _PhysicsProcess(double delta)
+	{
+		if (!_caught)
+			MoveAndCollide(_direction * _speed);
+		base._PhysicsProcess(delta);
+	}
 
-    public void OnBlinkTimer()
-    {
-        if (_caught) return;
-        if (_direction.Length() > 0.1f) return;
-        _sprite.Play("Yapping");
-        GetNode<Timer>("BlinkTimer").WaitTime = _rng.Randf() + 2.5f;
-    }
+	public void OnBlinkTimer()
+	{
+		if (_caught) return;
+		if (_direction.Length() > 0.1f) return;
+		_sprite.Play("Yapping");
+		GetNode<Timer>("BlinkTimer").WaitTime = _rng.Randf() + 2.5f;
+	}
 }

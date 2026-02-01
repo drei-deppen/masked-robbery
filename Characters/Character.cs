@@ -15,6 +15,18 @@ public abstract partial class Character: CharacterBody2D
 	private Vector2 _destination;
 	private TaskCompletionSource _walkingTask = null;
 	protected float Speed = 50f;
+	
+	protected AudioStreamPlayer2D _stepSounds;
+	protected AnimatedSprite2D _sprite;
+	
+	public override void _Ready()
+	{
+		base._Ready();
+		_stepSounds = GetNodeOrNull<AudioStreamPlayer2D>("StepSounds");
+		_sprite = GetNodeOrNull<AnimatedSprite2D>("Sprite");
+		
+			GD.Print(_stepSounds + " _stepSounds" + this);
+	}
 
 	public override void _PhysicsProcess(double delta)
 	{
@@ -41,7 +53,7 @@ public abstract partial class Character: CharacterBody2D
 		if (Busy) return;
 		GD.Print(Name + " does something");
 		
-		var dice =  Rng.RandiRange(1, 6);
+		var dice = Rng.RandiRange(1, 6);
 		var canYap = null != CurrentRoom && !CurrentRoom.JustMe(this);
 
 		try

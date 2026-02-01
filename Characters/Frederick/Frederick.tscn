@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c5il8upn83mah"]
+[gd_scene load_steps=11 format=3 uid="uid://c5il8upn83mah"]
 
 [ext_resource type="Script" path="res://Characters/Frederick/Frederick.cs" id="1_ey32j"]
 [ext_resource type="Texture2D" uid="uid://cq6aw0tm46jkk" path="res://Characters/Frederick/Freddy Standing.png" id="2_70vt0"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bpmp3g4hmc5mf" path="res://Characters/Frederick/Freddy Walking 2.png" id="5_02lyh"]
 [ext_resource type="Texture2D" uid="uid://biu312oqb6l0e" path="res://Characters/Frederick/Freddy Walking 3.png" id="6_58tpq"]
 [ext_resource type="Texture2D" uid="uid://btg6nyk7n5s3f" path="res://Characters/Frederick/Freddy Walking 4.png" id="7_ov1r5"]
+[ext_resource type="AudioStream" uid="uid://c5nsons7wpnao" path="res://Audio/Effects/frog squeeks.ogg" id="8_ho578"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_won70"]
 animations = [{
@@ -62,5 +63,10 @@ animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_pdhue")
+
+[node name="StepSounds" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_ho578")
+max_distance = 600.0
+attenuation = 1.07177
 
 [connection signal="input_event" from="." to="." method="OnInput"]
