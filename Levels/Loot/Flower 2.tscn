@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://df87a7p6n3osg"]
+[gd_scene load_steps=5 format=3 uid="uid://b1lx7t7a0be1e"]
 
-[ext_resource type="PackedScene" uid="uid://cy51dj2rykoet" path="res://Levels/Loot.tscn" id="1_3pebi"]
+[ext_resource type="PackedScene" uid="uid://dtdu7bx0caeij" path="res://Levels/Loot.tscn" id="1_3pebi"]
 [ext_resource type="Texture2D" uid="uid://cifluwd5bsiww" path="res://Levels/Loot/Flower 2.png" id="2_1dh5w"]
+[ext_resource type="AudioStream" uid="uid://vot2r3tkqoho" path="res://Audio/Effects/bush.mp3" id="2_m8phq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k4hua"]
 resource_local_to_scene = true
@@ -10,6 +11,8 @@ size = Vector2(124, 125)
 [node name="Flower2" type="Node2D"]
 
 [node name="Loot" parent="." instance=ExtResource("1_3pebi")]
+_value = 24
+_grabSound = ExtResource("2_m8phq")
 
 [node name="Books2" type="Sprite2D" parent="Loot"]
 scale = Vector2(0.5, 0.5)

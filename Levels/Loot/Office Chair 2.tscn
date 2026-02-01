@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://duq1vpnpagotq"]
+[gd_scene load_steps=5 format=3 uid="uid://c4f2layrgs80x"]
 
-[ext_resource type="PackedScene" uid="uid://cy51dj2rykoet" path="res://Levels/Loot.tscn" id="1_unls2"]
+[ext_resource type="PackedScene" uid="uid://dtdu7bx0caeij" path="res://Levels/Loot.tscn" id="1_unls2"]
+[ext_resource type="AudioStream" uid="uid://c8m7cd2rtqllu" path="res://Audio/Effects/office chair.ogg" id="2_rmvy6"]
 [ext_resource type="Texture2D" uid="uid://ftbf83lest22" path="res://Levels/Loot/Office Chair 2.png" id="2_sr0ae"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xf4lo"]
@@ -10,6 +11,8 @@ size = Vector2(153, 212)
 [node name="OfficeChair2" type="Node2D"]
 
 [node name="Loot" parent="." instance=ExtResource("1_unls2")]
+_value = 153
+_grabSound = ExtResource("2_rmvy6")
 
 [node name="Books2" type="Sprite2D" parent="Loot"]
 scale = Vector2(0.5, 0.5)

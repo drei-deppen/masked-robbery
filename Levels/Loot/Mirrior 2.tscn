@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://b0283ubgk1w4w"]
+[gd_scene load_steps=5 format=3 uid="uid://cndd4oe1obbsl"]
 
-[ext_resource type="PackedScene" uid="uid://cy51dj2rykoet" path="res://Levels/Loot.tscn" id="1_dh8n3"]
+[ext_resource type="PackedScene" uid="uid://dtdu7bx0caeij" path="res://Levels/Loot.tscn" id="1_dh8n3"]
+[ext_resource type="AudioStream" uid="uid://coflbr0e1gygt" path="res://Audio/Effects/smear.ogg" id="2_ahmof"]
 [ext_resource type="Texture2D" uid="uid://b8ok3shdb6yu0" path="res://Levels/Loot/Mirrior 2.png" id="2_tynmw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_djhvh"]
@@ -10,6 +11,8 @@ size = Vector2(109, 125)
 [node name="Mirrior2" type="Node2D"]
 
 [node name="Loot" parent="." instance=ExtResource("1_dh8n3")]
+_value = 55
+_grabSound = ExtResource("2_ahmof")
 
 [node name="Books2" type="Sprite2D" parent="Loot"]
 scale = Vector2(0.5, 0.5)

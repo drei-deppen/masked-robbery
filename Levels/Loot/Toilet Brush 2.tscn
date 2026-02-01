@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dow7c25gi01ok"]
+[gd_scene load_steps=5 format=3 uid="uid://bcemf8krfgfbx"]
 
-[ext_resource type="PackedScene" uid="uid://cy51dj2rykoet" path="res://Levels/Loot.tscn" id="1_oqsba"]
+[ext_resource type="PackedScene" uid="uid://dtdu7bx0caeij" path="res://Levels/Loot.tscn" id="1_oqsba"]
+[ext_resource type="AudioStream" uid="uid://vot2r3tkqoho" path="res://Audio/Effects/bush.mp3" id="2_jpm0r"]
 [ext_resource type="Texture2D" uid="uid://jtj2acixvaru" path="res://Levels/Loot/Toilet Brush 2.png" id="2_oiojd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mjkc3"]
@@ -10,6 +11,8 @@ size = Vector2(35, 72)
 [node name="ToiletBrush2" type="Node2D"]
 
 [node name="Loot" parent="." instance=ExtResource("1_oqsba")]
+_value = 12
+_grabSound = ExtResource("2_jpm0r")
 
 [node name="Books2" type="Sprite2D" parent="Loot"]
 scale = Vector2(0.5, 0.5)
