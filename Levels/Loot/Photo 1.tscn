@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwyavd24q4b8x"]
+
+[ext_resource type="PackedScene" uid="uid://cy51dj2rykoet" path="res://Levels/Loot.tscn" id="1_pka4v"]
+[ext_resource type="Texture2D" uid="uid://dw3rqfiylxhyo" path="res://Levels/Loot/Photo 1.png" id="2_2amp1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xiwt0"]
+size = Vector2(57, 58)
+
+[node name="Photo1" type="Node2D"]
+
+[node name="Loot" parent="." instance=ExtResource("1_pka4v")]
+_value = 1
+
+[node name="Photo1" type="Sprite2D" parent="Loot"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_2amp1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Loot"]
+position = Vector2(0.5, -1)
+shape = SubResource("RectangleShape2D_xiwt0")
+debug_color = Color(0.7, 0.641667, 0, 0.419608)

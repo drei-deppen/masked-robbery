@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://hitvtavswqst"]
+
+[ext_resource type="PackedScene" uid="uid://cy51dj2rykoet" path="res://Levels/Loot.tscn" id="1_lwlgj"]
+[ext_resource type="Texture2D" uid="uid://b625wrpqrjtn2" path="res://Levels/Loot/Palm Tree 1.png" id="2_gn12v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_10n7o"]
+size = Vector2(252, 398)
+
+[node name="PalmTree1" type="Node2D"]
+
+[node name="Loot" parent="." instance=ExtResource("1_lwlgj")]
+_value = 340
+
+[node name="PalmTree1" type="Sprite2D" parent="Loot"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_gn12v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Loot"]
+position = Vector2(2, -1)
+shape = SubResource("RectangleShape2D_10n7o")
+debug_color = Color(0.7, 0.641667, 0, 0.419608)

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bbnwu1p4airp3"]
+
+[ext_resource type="PackedScene" uid="uid://cy51dj2rykoet" path="res://Levels/Loot.tscn" id="1_b2828"]
+[ext_resource type="Texture2D" uid="uid://c22wwgfdqp4po" path="res://Levels/Loot/Vase 1b.png" id="2_uky4i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7vdrw"]
+size = Vector2(38, 91)
+
+[node name="Vase1b" type="Node2D"]
+
+[node name="Loot" parent="." instance=ExtResource("1_b2828")]
+_value = 10000
+
+[node name="Vase1b" type="Sprite2D" parent="Loot"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_uky4i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Loot"]
+shape = SubResource("RectangleShape2D_7vdrw")
+debug_color = Color(0.7, 0.641667, 0, 0.419608)

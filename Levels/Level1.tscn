@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cp8vllkmh7ucr"]
+[gd_scene load_steps=26 format=3 uid="uid://cp8vllkmh7ucr"]
 
 [ext_resource type="PackedScene" uid="uid://cqpowkkwqi0n6" path="res://UI/MaskSelector.tscn" id="1_328ns"]
 [ext_resource type="Script" path="res://Levels/Level1.cs" id="1_nfr8y"]
@@ -11,17 +11,16 @@
 [ext_resource type="PackedScene" uid="uid://csk6d450lrkl0" path="res://Characters/Governess/Governess.tscn" id="8_xc6cd"]
 [ext_resource type="PackedScene" uid="uid://ci2bwmmyaws3o" path="res://Characters/Dame/Dame.tscn" id="9_esgio"]
 [ext_resource type="PackedScene" uid="uid://2vmr3w010lpj" path="res://Characters/Baby/Baby.tscn" id="10_2j16d"]
-[ext_resource type="PackedScene" uid="uid://cy51dj2rykoet" path="res://Levels/Loot.tscn" id="11_5pqtt"]
-[ext_resource type="Texture2D" uid="uid://33qd3yklaih7" path="res://Levels/Loot/Picture 1.png" id="12_74igx"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sbx46"]
-size = Vector2(2377, 448)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_iyyiq"]
-size = Vector2(14.75, 902.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vvu5s"]
-size = Vector2(2348, 20)
+[ext_resource type="PackedScene" uid="uid://dt8df0uxmglkc" path="res://Levels/Loot/Picture 1.tscn" id="12_e7sap"]
+[ext_resource type="PackedScene" uid="uid://bhj0mqto0wpu4" path="res://Levels/Loot/Picture 1b.tscn" id="12_jeo2o"]
+[ext_resource type="PackedScene" uid="uid://cg2vuxsgjk8ol" path="res://Levels/Loot/Bottle 1.tscn" id="13_mdbb3"]
+[ext_resource type="PackedScene" uid="uid://hitvtavswqst" path="res://Levels/Loot/Palm Tree 1.tscn" id="13_w1tq3"]
+[ext_resource type="PackedScene" uid="uid://drhcn7jvu87gu" path="res://Levels/Loot/Vase 1a.tscn" id="14_hk4ga"]
+[ext_resource type="PackedScene" uid="uid://bbnwu1p4airp3" path="res://Levels/Loot/Vase 1b.tscn" id="15_lqj8j"]
+[ext_resource type="PackedScene" uid="uid://dwyavd24q4b8x" path="res://Levels/Loot/Photo 1.tscn" id="16_3l33f"]
+[ext_resource type="Texture2D" uid="uid://dasb3qn0elu56" path="res://Levels/Loot/Wall 1.png" id="19_j625f"]
+[ext_resource type="PackedScene" uid="uid://h6458lnrcpry" path="res://Levels/Loot/Fruit 1.tscn" id="20_bjkb4"]
+[ext_resource type="PackedScene" uid="uid://s0t6af463p6e" path="res://Levels/Loot/Calendar 1.tscn" id="21_l83na"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q7ceg"]
 size = Vector2(1273, 443)
@@ -29,8 +28,11 @@ size = Vector2(1273, 443)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vsn2d"]
 size = Vector2(891.25, 445.5)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dc5w8"]
-size = Vector2(150, 220)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iyyiq"]
+size = Vector2(14.75, 902.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vvu5s"]
+size = Vector2(2348, 20)
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_nfr8y")
@@ -47,7 +49,7 @@ _focus = NodePath("../Ferret")
 
 [node name="Ferret" parent="." instance=ExtResource("2_mq57p")]
 z_index = 100
-position = Vector2(108, 618)
+position = Vector2(121, 635)
 scale = Vector2(0.5, 0.5)
 
 [node name="UI" type="CanvasLayer" parent="."]
@@ -70,13 +72,28 @@ _target = NodePath("../Door2")
 position = Vector2(2298, 624)
 _target = NodePath("../Door")
 
-[node name="Room" parent="." instance=ExtResource("7_o1qey")]
-input_pickable = false
+[node name="Loot" type="Node" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Room"]
-position = Vector2(1178.5, 100)
-shape = SubResource("RectangleShape2D_sbx46")
-debug_color = Color(0.591466, 1.3236e-05, 0.275539, 0.419608)
+[node name="Picture1" parent="Loot" instance=ExtResource("12_e7sap")]
+position = Vector2(1099, 500)
+
+[node name="Bottle1" parent="Loot" instance=ExtResource("13_mdbb3")]
+position = Vector2(1951, 575)
+
+[node name="Vase1a" parent="Loot" instance=ExtResource("14_hk4ga")]
+position = Vector2(484, 565)
+
+[node name="Vase1b" parent="Loot" instance=ExtResource("15_lqj8j")]
+position = Vector2(623, 547)
+
+[node name="Photo1" parent="Loot" instance=ExtResource("16_3l33f")]
+position = Vector2(555, 567)
+
+[node name="Picture1b" parent="Loot" instance=ExtResource("12_jeo2o")]
+position = Vector2(548, 437)
+
+[node name="PalmTree1" parent="Loot" instance=ExtResource("13_w1tq3")]
+position = Vector2(980, 557)
 
 [node name="Boogies" type="Node" parent="."]
 
@@ -99,46 +116,6 @@ scale = Vector2(0.5, 0.5)
 [node name="BoogieTimer" type="Timer" parent="."]
 wait_time = 0.3
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(1200, 330)
-collision_layer = 4
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(1172.63, 0.75)
-shape = SubResource("RectangleShape2D_iyyiq")
-debug_color = Color(0, 0.6, 0.0588235, 0.419608)
-
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
-position = Vector2(-30, 330)
-collision_layer = 4
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2(26, 12)
-shape = SubResource("RectangleShape2D_iyyiq")
-debug_color = Color(0, 0.6, 0.0588235, 0.419608)
-
-[node name="StaticBody2D3" type="StaticBody2D" parent="."]
-position = Vector2(590, 0)
-collision_layer = 4
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
-position = Vector2(587, -149)
-shape = SubResource("RectangleShape2D_vvu5s")
-debug_color = Color(0, 0.6, 0.0588235, 0.419608)
-
-[node name="StaticBody2D4" type="StaticBody2D" parent="."]
-position = Vector2(590, 670)
-collision_layer = 4
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
-position = Vector2(606, 110)
-shape = SubResource("RectangleShape2D_vvu5s")
-debug_color = Color(0, 0.6, 0.0588235, 0.419608)
-
 [node name="Room2" parent="." instance=ExtResource("7_o1qey")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Room2"]
@@ -154,20 +131,60 @@ position = Vector2(2721, 369)
 shape = SubResource("RectangleShape2D_vsn2d")
 debug_color = Color(0.592157, 0, 0.27451, 0.419608)
 
-[node name="Loot" parent="." instance=ExtResource("11_5pqtt")]
-position = Vector2(296, 505)
+[node name="Barriers" type="Node" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="Loot"]
-position = Vector2(2, -2)
+[node name="StaticBody2D" type="StaticBody2D" parent="Barriers"]
+position = Vector2(1200, 330)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Barriers/StaticBody2D"]
+position = Vector2(1172.63, 0.75)
+shape = SubResource("RectangleShape2D_iyyiq")
+debug_color = Color(0, 0.6, 0.0588235, 0.419608)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Barriers"]
+position = Vector2(-30, 330)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Barriers/StaticBody2D2"]
+position = Vector2(26, 12)
+shape = SubResource("RectangleShape2D_iyyiq")
+debug_color = Color(0, 0.6, 0.0588235, 0.419608)
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Barriers"]
+position = Vector2(590, 0)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Barriers/StaticBody2D3"]
+position = Vector2(587, -149)
+shape = SubResource("RectangleShape2D_vvu5s")
+debug_color = Color(0, 0.6, 0.0588235, 0.419608)
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Barriers"]
+position = Vector2(590, 670)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Barriers/StaticBody2D4"]
+position = Vector2(606, 110)
+shape = SubResource("RectangleShape2D_vvu5s")
+debug_color = Color(0, 0.6, 0.0588235, 0.419608)
+
+[node name="Wall1" type="Sprite2D" parent="."]
+position = Vector2(1473, 556)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("12_74igx")
+texture = ExtResource("19_j625f")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Loot"]
-shape = SubResource("RectangleShape2D_dc5w8")
-debug_color = Color(0.7, 0.641667, 0, 0.419608)
+[node name="Fruit1" parent="." instance=ExtResource("20_bjkb4")]
+position = Vector2(1905, 574)
+
+[node name="Calendar1" parent="." instance=ExtResource("21_l83na")]
+position = Vector2(2142, 495)
 
 [connection signal="MaskSelected" from="UI/MaskSelector" to="." method="OnMaskSelected"]
-[connection signal="Caught" from="Room" to="." method="OnCaught"]
 [connection signal="Clicked" from="Boogies/Frederick" to="UI/MaskSelector" method="OnCharacterPhotographed"]
 [connection signal="Clicked" from="Boogies/Governess" to="UI/MaskSelector" method="OnCharacterPhotographed"]
 [connection signal="Clicked" from="Boogies/Dame" to="UI/MaskSelector" method="OnCharacterPhotographed"]
