@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://h6458lnrcpry"]
+[gd_scene load_steps=5 format=3 uid="uid://d08kmeyp145qr"]
 
-[ext_resource type="PackedScene" uid="uid://cy51dj2rykoet" path="res://Levels/Loot.tscn" id="1_f6aps"]
+[ext_resource type="PackedScene" uid="uid://dtdu7bx0caeij" path="res://Levels/Loot.tscn" id="1_f6aps"]
 [ext_resource type="Texture2D" uid="uid://bru0vkdmkcnbm" path="res://Levels/Loot/Fruit 1.png" id="2_msvdg"]
+[ext_resource type="AudioStream" uid="uid://bbr2uqvr6tcf8" path="res://Audio/Effects/squish.ogg" id="2_one1y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3pykv"]
 size = Vector2(73, 62)
@@ -9,7 +10,8 @@ size = Vector2(73, 62)
 [node name="Fruit1" type="Node2D"]
 
 [node name="Loot" parent="." instance=ExtResource("1_f6aps")]
-_value = 45
+_value = 6
+_grabSound = ExtResource("2_one1y")
 
 [node name="Fruit1" type="Sprite2D" parent="Loot"]
 scale = Vector2(0.5, 0.5)

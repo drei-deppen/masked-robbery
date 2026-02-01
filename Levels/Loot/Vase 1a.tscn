@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://drhcn7jvu87gu"]
+[gd_scene load_steps=5 format=3 uid="uid://c6u0t3t3l7lt2"]
 
-[ext_resource type="PackedScene" uid="uid://cy51dj2rykoet" path="res://Levels/Loot.tscn" id="1_fgrms"]
+[ext_resource type="PackedScene" uid="uid://dtdu7bx0caeij" path="res://Levels/Loot.tscn" id="1_fgrms"]
+[ext_resource type="AudioStream" uid="uid://dkuaekhj4yd4a" path="res://Audio/Effects/vase.ogg" id="2_570k0"]
 [ext_resource type="Texture2D" uid="uid://b6qashg6ke5k4" path="res://Levels/Loot/Vase 1a.png" id="2_nkusv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_plfky"]
@@ -10,6 +11,7 @@ size = Vector2(36, 63)
 
 [node name="Loot" parent="." instance=ExtResource("1_fgrms")]
 _value = 780
+_grabSound = ExtResource("2_570k0")
 
 [node name="Vase1a" type="Sprite2D" parent="Loot"]
 scale = Vector2(0.5, 0.5)
