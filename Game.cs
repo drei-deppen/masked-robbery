@@ -36,4 +36,9 @@ public partial class Game : Node
 	{
 		_start();
 	}
+
+	public void OnHuzzahButtonPressed()
+	{
+		GetNode<CanvasLayer>("HelpBox").Hide();
+	}
 }

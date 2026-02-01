@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Game.cs" id="1_an6ew"]
 [ext_resource type="PackedScene" uid="uid://bh0i4xw3g0i8h" path="res://UI/LevelHider.tscn" id="2_bg0ma"]
 [ext_resource type="AudioStream" uid="uid://da3ygmm4h2q6s" path="res://Audio/Music/spooky robber.ogg" id="4_kkixj"]
-[ext_resource type="PackedScene" path="res://UI/ScoreLabel.tscn" id="5_7gemg"]
+[ext_resource type="PackedScene" uid="uid://kml061qurwt5" path="res://UI/ScoreLabel.tscn" id="5_7gemg"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_an6ew")
@@ -60,7 +60,52 @@ layout_mode = 2
 horizontal_alignment = 1
 _format = "You grabbed {0} € worth of loot before you got caught!"
 
+[node name="HelpBox" type="CanvasLayer" parent="."]
+
+[node name="CenterContainer" type="CenterContainer" parent="HelpBox"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="HelpBox/CenterContainer"]
+custom_minimum_size = Vector2(440, 270)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HelpBox/CenterContainer/Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="HelpBox/CenterContainer/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="HelpBox/CenterContainer/Panel/VBoxContainer/MarginContainer"]
+layout_mode = 2
+text = "Help our ferret friend to narrow the wealth gap.
+Use A and D to move, and W to swipe loot and use
+door. And watch out for the inhabitants, they'll make
+quite the ruckus if the catch you.
+
+Luckily our ferret friend got a camera to make new
+masks, but beware: not everyone is fooled by every
+mask!"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HelpBox/CenterContainer/Panel/VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="Button" type="Button" parent="HelpBox/CenterContainer/Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Huzzah!"
+
 [connection signal="GameOver" from="Level1/Ferret" to="." method="OnGameOver"]
 [connection signal="pressed" from="GameOverUI/Container/Button" to="." method="OnRetry"]
+[connection signal="pressed" from="HelpBox/CenterContainer/Panel/VBoxContainer/HBoxContainer/Button" to="." method="OnHuzzahButtonPressed"]
 
 [editable path="Level1"]
